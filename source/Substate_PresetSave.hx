@@ -81,7 +81,7 @@ class Substate_PresetSave extends MusicBeatSubstate
 			});
 		//crap but better
         #if mobileC
-        addVirtualPad(UP_DOWN, A_B);
+        addVirtualPad(NONE, A_B);
         #end
     }
 
