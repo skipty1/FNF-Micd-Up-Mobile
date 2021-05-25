@@ -23,7 +23,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'About', 'test cutscene'];
+	var menuItems:Array<String> = ['controls', 'set fps', /*'downscroll: off', */'About', 'test cutscene'];
 
 	var UP_P:Bool;
 	var DOWN_P:Bool;
@@ -48,9 +48,9 @@ class OptionsMenu extends MusicBeatState
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
 
-		if (config.getdownscroll()){
+/*		if (config.getdownscroll()){
 			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
-		}
+		}*///Downscroll should be in PlayerSettings.hx I think
 
 		for (i in 0...menuItems.length)
 		{ 
@@ -88,10 +88,10 @@ class OptionsMenu extends MusicBeatState
 					insubstate = true;
 					openSubState(new options.SetFpsSubState());
 				
-				case "downscroll: on" | "downscroll: off":
+				/*case "downscroll: on" | "downscroll: off":
 					config.setdownscroll();
 					FlxG.resetState();
-				
+				*/
 				case "About":
 					FlxG.switchState(new options.AboutState());
 				case "test cutscene":
