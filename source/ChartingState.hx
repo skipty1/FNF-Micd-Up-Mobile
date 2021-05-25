@@ -35,11 +35,13 @@ import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
 class ChartingState extends MusicBeatState
 {
+    var _pad:FlxVirtualPad;
 	var _file:FileReference;
 	var _load:FileReference;
 
@@ -88,6 +90,9 @@ class ChartingState extends MusicBeatState
 
 	var leftIcon:HealthIcon;
 	var rightIcon:HealthIcon;
+	//add buttons
+	var key_space:FlxButton;
+	var key_shift:FlxButton;
 
 	private var lastNote:Note;
 
@@ -178,6 +183,22 @@ class ChartingState extends MusicBeatState
 
 		add(curRenderedNotes);
 		add(curRenderedSustains);
+
+
+		// add buttons
+		key_space = new FlxButton(60, 60, "");
+        key_space.loadGraphic(Paths.image("key_space")); //"assets/images/key_space.png"
+        key_space.alpha = 0.75;
+        add(key_space);
+
+        key_shift = new FlxButton(60, 200, "");
+        key_shift.loadGraphic(Paths.image("key_shift")); //"assets/images/key_shift.png"
+        key_shift.alpha = 0.75;
+        add(key_shift);
+
+		_pad = new FlxVirtualPad(RIGHT_FULL, NONE);
+    	_pad.alpha = 0.75;
+    	this.add(_pad);
 
 		super.create();
 	}
