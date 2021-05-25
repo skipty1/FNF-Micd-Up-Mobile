@@ -36,7 +36,7 @@ class AboutState extends MusicBeatState
 		logoBl.screenCenter();
 		logoBl.y = logoBl.y - 100;
 
-		text = new FlxText(0, 0, 0, "version 0.2.7.1" + "\n" + "ported by luckydog7", 64);
+		text = new FlxText(0, 0, 0, "Version 1.0" + "\n" + "PORTED BY" + "\n" + "Luckydog7" + "zacksgamerz" + "\n" + "klaviergayming" + "\n" + "peppy", 64);
 		text.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		text.screenCenter();
 		text.y = text.y + 150;
