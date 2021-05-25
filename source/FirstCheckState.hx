@@ -48,6 +48,6 @@ class FirstCheckState extends MusicBeatState
 				FlxG.switchState(new FirstTimeState()); // First time language setting
 			case false:
 				FlxG.switchState(new TitleState()); // First time language setting
-		}
+		}//who and why did you make this
 	}
 }
