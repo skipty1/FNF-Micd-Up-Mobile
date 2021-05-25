@@ -17,7 +17,7 @@ import ModifierVariables._modifiers;
 
 class RankingSubstate extends MusicBeatSubstate
 {
-    var screenJustTapped:Bool;
+    var screenJustTapped:Bool = false;
 	var pauseMusic:FlxSound;
 
 	var rank:FlxSprite = new FlxSprite(-200, 730);
