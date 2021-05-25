@@ -88,6 +88,10 @@ class PAGE5settings extends MusicBeatSubstate
         #if desktop
 			DiscordClient.changePresence("Settings page: Miscellaneous", null);
 		#end
+//crap but better
+        #if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
     }
 
         function createResults():Void
