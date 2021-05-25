@@ -24,11 +24,13 @@ import lime.utils.Assets;
 import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
 class MenuEndless extends MusicBeatState
 {
+    var _pad:FlxVirtualPad;
     var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('EndBG_Main'));
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('End_Checker'), 0.2, 0.2, true, true);
 	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
@@ -148,6 +150,10 @@ class MenuEndless extends MusicBeatState
                     FlxG.sound.playMusic(Paths.music('funkyMenu'), _variables.mvolume/100);
 					Conductor.changeBPM(140);
             }
+// crap
+		_pad = new FlxVirtualPad(FULL, A_B);
+		_pad.alpha = 0.65;
+		this.add(_pad);
 
         super.create();
     }
@@ -171,10 +177,10 @@ class MenuEndless extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:\n" + lerpScore;
 
-		var upP = controls.UP_P;
-		var downP = controls.DOWN_P;
-		var accepted = controls.ACCEPT;
-        var back = controls.BACK;
+		var upP = controls.UP_P || _pad.buttonUp.justPressed;
+		var downP = controls.DOWN_P || _pad.buttonDown.justPressed;
+		var accepted = controls.ACCEPT || _pad.buttonA.justPressed;
+        var back = controls.BACK || _pad.buttonB.justPressed;
 
         if (!substated && selectable && !goingBack && !substated)
             {
