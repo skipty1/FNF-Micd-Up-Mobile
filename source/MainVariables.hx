@@ -69,7 +69,7 @@ class MainVariables
     public static function Load():Void
     {
         // !FileSystem.exists('config.json')
-        if (new FilesystemEmu().loadCurrent().trim() == "".trim())
+        if (new FilesystemEmu().loadCurrent() == "")
         {
             _variables = {
                 resolution: 1,
