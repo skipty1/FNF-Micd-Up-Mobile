@@ -25,14 +25,17 @@ class Hitbox extends FlxSpriteGroup
 
     var screensizey:Int = 720;
 
-    public var left:FlxButton;
-    public var down:FlxButton;
-    public var up:FlxButton;
-    public var right:FlxButton;
+    public var buttonLeft:FlxButton;
+    public var buttonDown:FlxButton;
+    public var buttonUp:FlxButton;
+    public var buttonRight:FlxButton;
     
-    public function new(?widghtScreen:Int, ?heightScreen:Int)
+    public function new(?widghtScreen:Int)
     {
-        super(widghtScreen, heightScreen);
+        super();
+
+        /*if (widghtScreen == null)
+            widghtScreen = FlxG.width;*/
 
         sizex = widghtScreen != null ? Std.int(widghtScreen / 4) : 320;
 
@@ -48,21 +51,22 @@ class Hitbox extends FlxSpriteGroup
         add(hitbox_hint);
 
 
-        hitbox.add(add(left = createhitbox(0, "left")));
+        hitbox.add(add(buttonLeft = createhitbox(0, "left")));
 
-        hitbox.add(add(down = createhitbox(sizex, "down")));
+        hitbox.add(add(buttonDown = createhitbox(sizex, "down")));
 
-        hitbox.add(add(up = createhitbox(sizex * 2, "up")));
+        hitbox.add(add(buttonUp = createhitbox(sizex * 2, "up")));
 
-        hitbox.add(add(right = createhitbox(sizex * 3, "right")));
+        hitbox.add(add(buttonRight = createhitbox(sizex * 3, "right")));
     }
 
     public function createhitbox(X:Float, framestring:String) {
         var button = new FlxButton(X, 0);
         var frames = FlxAtlasFrames.fromSparrow('assets/shared/images/hitbox/hitbox.png', 'assets/shared/images/hitbox/hitbox.xml');
         
+        var graphic:FlxGraphic = FlxGraphic.fromFrame(frames.getByName(framestring));
 
-        button.loadGraphic(FlxGraphic.fromFrame(frames.getByName(framestring)));
+        button.loadGraphic(graphic);
 
         button.alpha = 0;
 
@@ -86,9 +90,9 @@ class Hitbox extends FlxSpriteGroup
         {
             super.destroy();
     
-            left = null;
-            down = null;
-            up = null;
-            right = null;
+            buttonLeft = null;
+            buttonDown = null;
+            buttonUp = null;
+            buttonRight = null;
         }
 }

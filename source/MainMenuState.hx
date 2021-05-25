@@ -132,6 +132,11 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
+		#if mobileC
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
+
 		super.create();
 
 		new FlxTimer().start(1, function(tmr:FlxTimer)
