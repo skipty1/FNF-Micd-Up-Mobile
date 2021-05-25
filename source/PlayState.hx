@@ -206,6 +206,8 @@ class PlayState extends MusicBeatState
 	var camLerp:Float = 0.14;
 	var zoomLerp:Float = 0.09;
 
+	var songLength:Float = 0;
+
 	override public function create()
 	{
 		modifierValues();
@@ -2735,7 +2737,9 @@ class PlayState extends MusicBeatState
 		
 							if (SONG.validScore)
 							{
+								#if newgrounds
 								NGio.unlockMedal(60961);
+								#end
 								Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 							}
 		

@@ -16,7 +16,9 @@ class FirstCheckState extends MusicBeatState
 	{
 		FlxG.mouse.visible = false;
 
+		#if newgrounds
 		NGio.noLogin(APIStuff.API);
+		#end
 
 		#if ng
 		var ng:NGio = new NGio(APIStuff.API, APIStuff.EncKey);
