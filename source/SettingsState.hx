@@ -56,9 +56,9 @@ class SettingsState extends MusicBeatState
 				}
 			}
 //crap but better
-        #if mobileC
+/*        #if mobileC
         addVirtualPad(UP_DOWN, A_B);
-        #end
+        #end*/ //zack el stupido
 
 		super.create();
 
