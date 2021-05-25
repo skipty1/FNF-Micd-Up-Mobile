@@ -46,6 +46,9 @@ import openfl.filters.ShaderFilter;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
 import Endless_Substate._endless;
+#if mobileC
+import ui.Mobilecontrols;
+#end
 
 using StringTools;
 
@@ -195,6 +198,9 @@ class PlayState extends MusicBeatState
 	var songLength:Float = 0;
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
+	#end
+	#if mobileC
+	var mcontrols:Mobilecontrols; 
 	#end
 
 	var dialogueSuffix:String = "";
@@ -1093,6 +1099,29 @@ class PlayState extends MusicBeatState
 		LightsOutBG.cameras = [camPAUSE];
 		BlindingBG.cameras = [camPAUSE];
 
+		#if mobileC
+			mcontrols = new Mobilecontrols();
+			switch (mcontrols.mode)
+			{
+				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
+				case HITBOX:
+					controls.setHitBox(mcontrols._hitbox);
+				default:
+			}
+			trackedinputs = controls.trackedinputs;
+			controls.trackedinputs = [];
+
+			var camcontrol = new FlxCamera();
+			FlxG.cameras.add(camcontrol);
+			camcontrol.bgColor.alpha = 0;
+			mcontrols.cameras = [camcontrol];
+
+			mcontrols.visible = false;
+
+			add(mcontrols);
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1300,6 +1329,9 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		#if mobileC
+		mcontrols.visible = true;
+		#end
 		inCutscene = false;
 
 		if (gameplayArea != "Endless" || (gameplayArea == "Endless" && loops == 0))
