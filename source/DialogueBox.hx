@@ -232,6 +232,16 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
+//crap 4
+        for (touch in FlxG.touches.list)
+		{
+			screenJustTouched = false;
+			
+			if (touch.justReleased){
+				screenJustTouched = true;
+			}
+		}
+	
 		if (FlxG.keys.justPressed.ANY || screenJustTouched && dialogueStarted == true)
 		{
 			remove(dialogue);
