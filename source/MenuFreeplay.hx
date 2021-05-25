@@ -20,6 +20,7 @@ import lime.utils.Assets;
 import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
