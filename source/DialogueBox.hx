@@ -51,7 +51,7 @@ class DialogueBox extends FlxSpriteGroup
 	var bgFIL:Int;
 	var handSprite:String = '#FFFFFFFF';
 	var clickSound:String = '#FF000000';
-	
+	var screenJustTouched:Bool = false;
 
 	var curCharacter:String = '';
 	var oldCharacter:String = '';
@@ -232,7 +232,7 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
-		if (FlxG.keys.justPressed.ANY  && dialogueStarted == true)
+		if (FlxG.keys.justPressed.ANY || screenJustTouched && dialogueStarted == true)
 		{
 			remove(dialogue);
 				
