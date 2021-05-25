@@ -73,15 +73,19 @@ class Main extends Sprite
 		initialState = FirstCheckState;
 		#end
 
+		gameWidth = 1280;
+		gameHeight = 720;
+		zoom = 1;
+
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		#if !mobile
+		//#if !mobile
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsCounter);
 
 		memoryCounter = new MemoryCounter(10, 3, 0xffffff);
 		addChild(memoryCounter);
-		#end
+		//#end
 
 		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
 

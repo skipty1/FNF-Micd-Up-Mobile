@@ -61,13 +61,15 @@ class MainVariables
 
     public static function Save():Void
     {
-        File.saveContent(('config.json'), Json.stringify(_variables));
+        //File.saveContent(('config.json'), Json.stringify(_variables));
+        new FilesystemEmu().saveCurrent(Json.stringify(_variables));
+        trace('its work');
     }
 
     public static function Load():Void
     {
-
-        if (!FileSystem.exists('config.json'))
+        // !FileSystem.exists('config.json')
+        if (new FilesystemEmu().loadCurrent().trim() == "".trim())
         {
             _variables = {
                 resolution: 1,
@@ -113,7 +115,9 @@ class MainVariables
         }
         else
         {
-            var data:String = File.getContent(('config.json'));
+            //var data:String = File.getContent(('config.json'));
+            var data:String = new FilesystemEmu().loadCurrent();
+            trace(data);
             _variables = Json.parse(data);
         }
 
