@@ -108,14 +108,14 @@ class RankingSubstate extends MusicBeatSubstate
 //crap 4
         for (touch in FlxG.touches.list)
 		{
-			screenJustTouched = false;
+			screenJustTapped = false;
 			
 			if (touch.justReleased){
-				screenJustTouched = true;
+				screenJustTapped = true;
 			}
 		}
 	
-		if (FlxG.keys.justPressed.ANY || _modifiers.Practice || screenJustTouched)
+		if (FlxG.keys.justPressed.ANY || _modifiers.Practice || screenJustTapped)
 		{
 			PlayState.ended = false;
 
