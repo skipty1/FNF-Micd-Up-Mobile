@@ -54,7 +54,7 @@ class Substate_PresetSave extends MusicBeatSubstate
         blackBarThingie.scrollFactor.set();
         blackBarThingie.scale.y = 750;
 
-        chooseName = new FlxText(FlxG.width * 0.7, 5, 0, "Type in your preset name. Once you're done, press enter\nto proceed, or escape to leave.", 32);
+        chooseName = new FlxText(FlxG.width * 0.7, 5, 0, "Type in your preset name. Once you're done, press A\nto proceed, or B to leave.", 32);
 		chooseName.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		chooseName.alignment = CENTER;
 		chooseName.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
@@ -79,6 +79,10 @@ class Substate_PresetSave extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
+		//crap but better
+        #if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
     }
 
     var selectable:Bool = false;
@@ -102,7 +106,7 @@ class Substate_PresetSave extends MusicBeatSubstate
 
         if (selectable && !goingBack)
         {
-            if (FlxG.keys.justPressed.ESCAPE)
+            if (controls.BACK)
                 {
                     goingBack = true;
                     FlxG.sound.play(Paths.sound('cancelMenu'), _variables.svolume/100);
@@ -119,7 +123,7 @@ class Substate_PresetSave extends MusicBeatSubstate
                         });
                 }
         
-            if (FlxG.keys.justPressed.ENTER && name.text != '')
+            if (controls.ACCEPT && name.text != '')
             {
                 nameResult = name.text;
                 FlxG.state.closeSubState();
