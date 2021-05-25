@@ -7,9 +7,11 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import ui.FlxVirtualPad;
 
 class GameOverState extends FlxTransitionableState
 {
+    var _pad:FlxVirtualPad;
 	var bfX:Float = 0;
 	var bfY:Float = 0;
 
@@ -35,7 +37,7 @@ class GameOverState extends FlxTransitionableState
 		add(bf);
 		bf.playAnim('firstDeath');
 
-		FlxG.camera.follow(bf, LOCKON, 0.001);
+		FlxG.camera.follow(bf, LOCKON, 0.007);
 		/* 
 			var restart:FlxSprite = new FlxSprite(500, 50).loadGraphic(AssetPaths.restart.png);
 			restart.setGraphicSize(Std.int(restart.width * 0.6));
@@ -48,6 +50,10 @@ class GameOverState extends FlxTransitionableState
 
 		// FlxTween.tween(restart, {alpha: 1}, 1, {ease: FlxEase.quartInOut});
 		// FlxTween.tween(restart, {y: restart.y + 40}, 7, {ease: FlxEase.quartInOut, type: PINGPONG});
+// crap
+		_pad = new FlxVirtualPad(NONE, A);
+		_pad.alpha = 0.65;
+		this.add(_pad);
 
 		super.create();
 	}
@@ -56,7 +62,7 @@ class GameOverState extends FlxTransitionableState
 
 	override function update(elapsed:Float)
 	{
-		var pressed:Bool = FlxG.keys.justPressed.ANY;
+		var pressed:Bool = FlxG.keys.justPressed.ANY || _pad.buttonA.justPressed;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
