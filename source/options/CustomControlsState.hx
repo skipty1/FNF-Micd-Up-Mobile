@@ -98,7 +98,7 @@ class CustomControlsState extends MusicBeatSubstate
 		//text inputvari
 		inputvari = new FlxText(125, 50, 0,controlitems[0], 48);
 		
-		//arrows
+		//arrows (broken)
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 
 		leftArrow = new FlxSprite(inputvari.x - 60,inputvari.y - 10);
