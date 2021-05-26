@@ -35,7 +35,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['play', 'support', 'options', 'options-mobile', 'mods'];
+	var optionShit:Array<String> = ['play', 'support', 'options'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -117,22 +117,9 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = true;
 			menuItem.scale.set(0.8, 0.8);
 			menuItem.updateHitbox();
-            /*//hope this works lol
-			var menuItemC:FlxSprite = new FlxSprite(-800, 40 + (i * 200));
-			menuItemC.frames = texm;
-			menuItemC.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
-			menuItemC.animation.addByPrefix('selected', optionShit[i] + " select", 24);
-			menuItemC.animation.play('idle');
-			menuItemC.ID = i;
-			FlxTween.tween(menuItemC, { x: menuItemC.width/4 + (i * 210) - 30}, 1.3, { ease: FlxEase.expoInOut });
-			menuItemsC.add(menuItem);
-			menuItemC.scrollFactor.set();
-			menuItemC.antialiasing = true;
-			menuItemC.scale.set(0.8, 0.8);
-			menuItemC.updateHitbox();*///brok cod go brrr
 		}
 
-		FlxG.camera.follow(camFollow, LOCKON, camLerp);
+		FlxG.camera.follow(camFollow, null, camLerp);
 
 		FlxG.camera.zoom = 3;
 		side.alpha = 0;
@@ -279,16 +266,6 @@ class MainMenuState extends MusicBeatState
 										#if desktop
 											DiscordClient.changePresence("Gonna set some options brb.", null);
 										#end
-									case 'options-mobile':
-									    FlxG.switchState(new options.OptionsMenu());
-									    #if desktop
-									    DiscordClient.changePresence("Gonna set some options brb. but mobile editon", null);
-									    #end
-									case 'mods':
-									    #if desktop
-									    DiscordClient.changePresence("Checking out the mods", null);
-									    #end
-									    FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');//lol!
 								}
 							});
 					});
@@ -304,11 +281,7 @@ class MainMenuState extends MusicBeatState
 					camFollow.x = spr.getGraphicMidpoint().x;
 				}
 			});
-		//just a test
-        /*if (optionShit[curSelected] == 'options-mobile' || optionShit[curSelected] == 'mods')
-        {
-            camFollow.y -= 20;
-        }*/
+
 		super.update(elapsed);
 	}
 
