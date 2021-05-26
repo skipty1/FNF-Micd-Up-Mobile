@@ -44,8 +44,11 @@ class NoMods extends MusicBeatState
 		add(bg);
 		//add(logoBl);
 		add(text);
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
 
- 
 		super.create();
 	}
 
@@ -59,12 +62,21 @@ class NoMods extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		#if android
+        if (controls.ACCEPT)
+        {
+            FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
+        }
+        if (controls.BACK)
+        {
+            FlxG.switchState(new PlaySelection());
+        }
+
+		/*#if android
 		if (FlxG.android.justReleased.BACK)
 		{
 			FlxG.switchState(new OptionsMenu());
 		}
-		#end
+		#end*/
 
 	}
 
