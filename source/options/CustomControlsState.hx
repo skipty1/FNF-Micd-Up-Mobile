@@ -48,6 +48,11 @@ class CustomControlsState extends MusicBeatSubstate
 
 	var bindbutton:flixel.ui.FlxButton;
 
+	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('pBG_Main'));
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Play_Checker'), 0.2, 0.2, true, true);
+	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
+	var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('Play_Bottom'));
+
 	var config:Config;
 
 	public function new()
