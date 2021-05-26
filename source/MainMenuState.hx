@@ -100,7 +100,7 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
-		var texm = Paths.getSparrowAtlas('menu_asset.png');
+		//var texm = Paths.getSparrowAtlas('menu_asset.png');
 
 		for (i in 0...optionShit.length)
 		{
@@ -116,7 +116,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = true;
 			menuItem.scale.set(0.8, 0.8);
 			menuItem.updateHitbox();
-            //hope this works lol
+            /*//hope this works lol
 			var menuItemC:FlxSprite = new FlxSprite(-800, 40 + (i * 200));
 			menuItemC.frames = texm;
 			menuItemC.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
@@ -128,7 +128,7 @@ class MainMenuState extends MusicBeatState
 			menuItemC.scrollFactor.set();
 			menuItemC.antialiasing = true;
 			menuItemC.scale.set(0.8, 0.8);
-			menuItemC.updateHitbox();
+			menuItemC.updateHitbox();*///brok cod go brrr
 		}
 
 		FlxG.camera.follow(camFollow, null, camLerp);
