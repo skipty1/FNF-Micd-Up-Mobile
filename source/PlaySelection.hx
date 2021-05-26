@@ -250,6 +250,12 @@ class PlaySelection extends MusicBeatState
 									#if desktop
 										DiscordClient.changePresence("Endless easy SMM2 moment.",  null);
 									#end
+								case 'options-mobile':
+								    FlxG.switchState(new options.OptionsMenu());
+								    trace('sus!')
+							    case 'mods':
+							        FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
+							        trace('when the imposter is (line 255)')
 							}
 						});
 				});
