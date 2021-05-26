@@ -304,7 +304,11 @@ class MainMenuState extends MusicBeatState
 					camFollow.x = spr.getGraphicMidpoint().x;
 				}
 			});
-
+		//just a test
+        if (optionShit[curSelected] == 'options-mobile' || optionShit[curSelected] == 'mods')
+        {
+            camFollow.y -= 20;
+        }
 		super.update(elapsed);
 	}
 
