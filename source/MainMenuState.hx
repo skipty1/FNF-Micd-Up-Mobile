@@ -29,7 +29,6 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-    var _pad:FlxVirtualPad;
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
