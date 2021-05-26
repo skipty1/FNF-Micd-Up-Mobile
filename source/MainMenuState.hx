@@ -191,7 +191,7 @@ class MainMenuState extends MusicBeatState
 //		RIGHT_P = _pad.buttonRight.justPressed;*/
 //		ACCEPT = _pad.buttonA.justPressed;
 //		BACK = _pad.buttonB.justPressed;
-
+//Tip: use /* */ to lock things quickly
 		if (!selectedSomethin && selectable)
 		{
 			if (controls.UP_P)
@@ -269,6 +269,11 @@ class MainMenuState extends MusicBeatState
 									    #if desktop
 									    DiscordClient.changePresence("Gonna set some options brb. but mobile editon", null);
 									    #end
+									case 'mods':
+									    #if desktop
+									    DiscordClient.changePresence("Checking out the mods", null);
+									    #end
+									    FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');//lol!
 								}
 							});
 					});
