@@ -33,7 +33,7 @@ class PlaySelection extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = ['week', 'freeplay', 'marathon', 'endless', 'modifier'];
+	var optionShit:Array<String> = ['week', 'freeplay', 'marathon', 'endless', 'modifier', 'options-mobile', 'mods'];//Zack is fucking stupid
 	var camFollow:FlxObject;
 
 	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('pBG_Main'));
