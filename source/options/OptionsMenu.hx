@@ -8,11 +8,9 @@ import flixel.text.FlxText;
 import Config;
 import flixel.util.FlxGradient;
 import flixel.addons.display.FlxBackdrop;
-
 #if extension-webview
 import WebViewVideo;
 #end
-
 import flixel.util.FlxSave;
 
 class OptionsMenu extends MusicBeatState
