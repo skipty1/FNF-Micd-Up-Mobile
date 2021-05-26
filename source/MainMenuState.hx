@@ -134,9 +134,9 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 // crap
-		_pad = new FlxVirtualPad(UP_DOWN, A_B);
+/*		_pad = new FlxVirtualPad(UP_DOWN, A_B);
 		_pad.alpha = 0.65;
-		this.add(_pad);
+		this.add(_pad);*/
 
 		#if mobileC
 		addVirtualPad(UP_DOWN, A_B);

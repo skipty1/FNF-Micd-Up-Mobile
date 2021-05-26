@@ -263,7 +263,7 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+		//#if mobile
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
@@ -271,7 +271,7 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			}
 		}
-		#end
+		//#end testing to see if the block is causing the problem for newer android devices
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 

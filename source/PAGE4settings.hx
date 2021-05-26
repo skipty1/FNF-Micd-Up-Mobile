@@ -90,6 +90,10 @@ class PAGE4settings extends MusicBeatSubstate
         #if desktop
 			DiscordClient.changePresence("Settings page: Gameplay", null);
 		#end
+		//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
     }
 
     function updateResults():Void

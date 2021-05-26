@@ -17,6 +17,7 @@ import ModifierVariables._modifiers;
 
 class RankingSubstate extends MusicBeatSubstate
 {
+    var screenJustTapped:Bool = false;
 	var pauseMusic:FlxSound;
 
 	var rank:FlxSprite = new FlxSprite(-200, 730);
@@ -59,7 +60,7 @@ class RankingSubstate extends MusicBeatSubstate
 		combo.antialiasing = true;
 		combo.setGraphicSize(0,130);
 
-		var press:FlxText = new FlxText(20, 15, 0, "Press ANY to continue.", 32);
+		var press:FlxText = new FlxText(20, 15, 0, "Tap the screen to continue.", 32);
 		press.scrollFactor.set();
 		press.setFormat(Paths.font("vcr.ttf"), 32);
 		press.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
@@ -104,8 +105,17 @@ class RankingSubstate extends MusicBeatSubstate
 			pauseMusic.volume += 0.01 * _variables.mvolume/100 * elapsed;
 
 		super.update(elapsed);
-
-		if (FlxG.keys.justPressed.ANY || _modifiers.Practice)
+//crap 4
+        for (touch in FlxG.touches.list)
+		{
+			screenJustTapped = false;
+			
+			if (touch.justReleased){
+				screenJustTapped = true;
+			}
+		}
+	
+		if (FlxG.keys.justPressed.ANY || _modifiers.Practice || screenJustTapped)
 		{
 			PlayState.ended = false;
 

@@ -55,6 +55,10 @@ class SettingsState extends MusicBeatState
 						Conductor.changeBPM(140);
 				}
 			}
+//crap but better
+/*        #if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end*/ //zack el stupido
 
 		super.create();
 

@@ -150,6 +150,10 @@ class MenuModifiers extends MusicBeatState
         explain.x = 20;
         explain.y = 654;
         explain.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 
         super.create();
 		changeItem();

@@ -173,6 +173,10 @@ class MenuMarathon extends MusicBeatState
                     FlxG.sound.playMusic(Paths.music('funkyMenu'), _variables.mvolume/100);
 					Conductor.changeBPM(140);
             }
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 
         super.create();
 
