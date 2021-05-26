@@ -335,6 +335,14 @@ class Controls extends FlxActionSet
 	}
 	
 
+	/*
+	 * how to fix error in controls
+	 * 
+	 * first need install haxe 4.2.2 https://haxe.org/download/
+	 * 
+	 * and then execute this command 'haxelib upgrade' and press 'y' everywhere
+	 */
+
 	public function removeFlxInput(Tinputs) {
 		for (action in this.digitalActions)
 		{
