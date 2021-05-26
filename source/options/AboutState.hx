@@ -9,12 +9,19 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import flixel.util.FlxGradient;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
 class AboutState extends MusicBeatState
 {
 	var logoBl:FlxSprite;
+
+	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('pBG_Main'));
+	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Play_Checker'), 0.2, 0.2, true, true);
+	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
+	var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('Play_Bottom'));
 
 	var text:FlxText;
 
@@ -25,8 +32,30 @@ class AboutState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
-		
+		bg.scrollFactor.x = 0;
+		bg.scrollFactor.y = 0.03;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = true;
+		bg.y -= bg.height;
+		add(bg);
+
+		gradientBar = FlxGradient.createGradientFlxSprite(Math.round(FlxG.width), 512, [0x00ff0000, 0x55FFC461, 0xAAFBFF89], 1, 90, true); 
+		gradientBar.y = FlxG.height - gradientBar.height;
+		add(gradientBar);
+		gradientBar.scrollFactor.set(0, 0);
+
+		add(checker);
+		checker.scrollFactor.set(0, 0.07);
+
+		side.scrollFactor.x = 0;
+		side.scrollFactor.y = 0.1;
+		side.antialiasing = true;
+		side.screenCenter();
+		add(side);
+		side.y = FlxG.height - side.height/3*2;
+
 		logoBl = new FlxSprite(-150, -100);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = true;
