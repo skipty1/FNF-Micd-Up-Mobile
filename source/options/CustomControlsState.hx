@@ -63,13 +63,14 @@ class CustomControlsState extends MusicBeatSubstate
 		config = new Config();
 		
 		// bg
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic('assets/images/menuBG.png');
 		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.18;
+		bg.scrollFactor.y = 0.03;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = true;
+		bg.y -= bg.height;
+		add(bg);
 
 		// load curSelected
 		curSelected = config.getcontrolmode();
