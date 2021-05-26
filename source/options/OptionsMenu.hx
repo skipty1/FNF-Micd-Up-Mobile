@@ -112,7 +112,7 @@ class OptionsMenu extends MusicBeatState
 		else
 		{
 			if (controls.BACK #if android || FlxG.android.justReleased.BACK #end)
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(new PlaySelection());
 			if (controls.UP_P)
 				changeSelection(-1);
 			if (controls.DOWN_P)
