@@ -81,7 +81,6 @@ class CustomControlsState extends MusicBeatSubstate
 		_pad.alpha = 0;
 		
 
-
 		//text inputvari
 		inputvari = new FlxText(125, 50, 0,controlitems[0], 48);
 		
