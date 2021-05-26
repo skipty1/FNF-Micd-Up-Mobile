@@ -8,6 +8,7 @@ import flixel.text.FlxText;
 import Config;
 import flixel.util.FlxGradient;
 import flixel.addons.display.FlxBackdrop;
+import flixel.util.FlxColor;
 #if extension-webview
 import WebViewVideo;
 #end
