@@ -30,11 +30,6 @@ class OptionsMenu extends MusicBeatState
 
 	var menuItems:Array<String> = ['controls', 'set fps', /*'downscroll: off', */'About', 'test cutscene'];
 
-	var UP_P:Bool;
-	var DOWN_P:Bool;
-	var BACK:Bool;
-	var ACCEPT:Bool;
-
 	var _saveconrtol:FlxSave;
 
 	var config:Config = new Config();
