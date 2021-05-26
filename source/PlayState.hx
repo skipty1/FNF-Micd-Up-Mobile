@@ -917,7 +917,14 @@ class PlayState extends MusicBeatState
 
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, LOCKON, camLerp);
+		//FlxG.camera.follow(camFollow, LOCKON, camLerp);
+		FlxG.camera.follow(camFollow, LOCKON, 0.16);
+		/*camera lockon/follow tutorial:
+		0.01 - Real fucking slow
+		0.04 - Normal 60Fps speed
+		0.10 - 90 Fps speed
+		0.16 - Micd up speed*/
+
 		// FlxG.camera.setScrollBounds(0, FlxG.width, 0, FlxG.height);
 		FlxG.camera.zoom = defaultCamZoom;
 		FlxG.camera.focusOn(camFollow.getPosition());
