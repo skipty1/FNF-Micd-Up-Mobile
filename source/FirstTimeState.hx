@@ -36,7 +36,7 @@ class FirstTimeState extends MusicBeatState
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		add(txt);
 // crap
-		_pad = new FlxVirtualPad(FULL, A_B);
+		_pad = new FlxVirtualPad(NONE, A);
 		_pad.alpha = 0.65;
 		this.add(_pad);
 

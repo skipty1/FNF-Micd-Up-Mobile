@@ -125,7 +125,7 @@ class PlaySelection extends MusicBeatState
 		changeItem();
 //crap but better
         #if mobileC
-        addVirtualPad(UP_DOWN, A_B);
+        addVirtualPad(LEFT_RIGHT, A_B);
         #end
 
 		super.create();

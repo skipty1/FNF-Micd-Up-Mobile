@@ -179,34 +179,34 @@ class MainMenuState extends MusicBeatState
 		checker.x -= 0.45/(_variables.fps/60);
 		checker.y -= 0.16/(_variables.fps/60);
 //crap 3
-		var UP_P:Bool = false;
-		var DOWN_P:Bool = false;
-		/*var LEFT_P:Bool = false;
-		var RIGHT_P:Bool = false;*/
-		var ACCEPT:Bool = false;
-		var BACK:Bool = false;
-		UP_P = _pad.buttonUp.justPressed;
-		DOWN_P = _pad.buttonDown.justPressed;
-		/*LEFT_P = _pad.buttonLeft.justPressed;
-		RIGHT_P = _pad.buttonRight.justPressed;*/
-		ACCEPT = _pad.buttonA.justPressed;
-		BACK = _pad.buttonB.justPressed;
+//		var UP_P:Bool = false;
+//		var DOWN_P:Bool = false;
+//		/*var LEFT_P:Bool = false;
+//		var RIGHT_P:Bool = false;*/
+//		var ACCEPT:Bool = false;
+//		var BACK:Bool = false;
+//		UP_P = _pad.buttonUp.justPressed;
+//		DOWN_P = _pad.buttonDown.justPressed;
+//		/*LEFT_P = _pad.buttonLeft.justPressed;
+//		RIGHT_P = _pad.buttonRight.justPressed;*/
+//		ACCEPT = _pad.buttonA.justPressed;
+//		BACK = _pad.buttonB.justPressed;
 
 		if (!selectedSomethin && selectable)
 		{
-			if (controls.UP_P || UP_P)
+			if (controls.UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), _variables.svolume/100);
 				changeItem(-1);
 			}
 
-			if (controls.DOWN_P || DOWN_P)
+			if (controls.DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'), _variables.svolume/100);
 				changeItem(1);
 			}
 
-			if (controls.BACK || BACK)
+			if (controls.BACK)
 			{
 				selectedSomethin = true;
 				#if desktop
@@ -216,7 +216,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new TitleStateReturn());
 			}
 
-			if (controls.ACCEPT || ACCEPT)
+			if (controls.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'support')
 				{
