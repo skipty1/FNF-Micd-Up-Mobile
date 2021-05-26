@@ -36,4 +36,26 @@ class FilesystemEmu {
 
         save.flush();
     }
+
+    public function saveContent(key:String, json:String)
+    {
+        if (save.data.config == null)
+		{ 
+            save.data.config = new Array();
+        }
+
+        save.data.config[Std.parseInt(key)] = json;
+
+        save.flush();
+    }
+
+    public function getContent(key:String, json:String)
+    {
+        if (save.data.config == null)
+		{ 
+            save.data.config = new Array();
+        }
+
+        return save.data.config[Std.parseInt(key)];
+    }
 }
