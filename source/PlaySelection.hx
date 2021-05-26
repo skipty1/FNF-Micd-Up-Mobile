@@ -254,7 +254,8 @@ class PlaySelection extends MusicBeatState
 								    FlxG.switchState(new options.OptionsMenu());
 								    trace('sus!')
 							    case 'mods':
-							        FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
+							        //FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
+							        FlxG.switchState(new options.NoMods());
 							        trace('when the imposter is (line 255)')
 							}
 						});
