@@ -12,6 +12,8 @@ import flixel.math.FlxPoint;
 import haxe.Json;
 import ui.Hitbox;
 import Config;
+import flixel.util.FlxGradient;
+import flixel.addons.display.FlxBackdrop;
 #if lime
 import lime.system.Clipboard;
 #end
