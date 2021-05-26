@@ -132,7 +132,7 @@ class MainMenuState extends MusicBeatState
 			menuItemC.updateHitbox();*///brok cod go brrr
 		}
 
-		FlxG.camera.follow(camFollow, null, camLerp);
+		FlxG.camera.follow(camFollow, LOCKON, camLerp);
 
 		FlxG.camera.zoom = 3;
 		side.alpha = 0;
@@ -305,10 +305,10 @@ class MainMenuState extends MusicBeatState
 				}
 			});
 		//just a test
-        if (optionShit[curSelected] == 'options-mobile' || optionShit[curSelected] == 'mods')
+        /*if (optionShit[curSelected] == 'options-mobile' || optionShit[curSelected] == 'mods')
         {
             camFollow.y -= 20;
-        }
+        }*/
 		super.update(elapsed);
 	}
 
