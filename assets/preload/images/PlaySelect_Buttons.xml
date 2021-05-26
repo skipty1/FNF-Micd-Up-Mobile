@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="FNF_PlaySelect_Assets.png">
+<TextureAtlas imagePath="ass.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="endless idle0000" x="0" y="0" width="253" height="290"/>
@@ -12,6 +12,8 @@
 	<SubTexture name="modifier select0000" x="1785" y="0" width="263" height="290"/>
 	<SubTexture name="mods idle0000" x="0" y="290" width="277" height="293"/>
 	<SubTexture name="mods select0000" x="277" y="290" width="277" height="293"/>
-	<SubTexture name="week idle0000" x="554" y="290" width="259" height="290"/>
-	<SubTexture name="week select0000" x="813" y="290" width="259" height="290"/>
+	<SubTexture name="options mobile idle0000" x="554" y="290" width="277" height="293"/>
+	<SubTexture name="options mobile select0000" x="831" y="290" width="277" height="293"/>
+	<SubTexture name="week idle0000" x="1108" y="290" width="259" height="290"/>
+	<SubTexture name="week select0000" x="1367" y="290" width="259" height="290"/>
 </TextureAtlas>
