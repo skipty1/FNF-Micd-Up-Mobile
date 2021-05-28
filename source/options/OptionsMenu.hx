@@ -29,7 +29,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'About', 'test cutscene'];
+	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'About', 'pause button: off'];
 
 	var _saveconrtol:FlxSave;
 
@@ -74,6 +74,9 @@ class OptionsMenu extends MusicBeatState
 		if (config.getdownscroll()){
 			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
 		}
+		if (config.getPause()){
+			menuItems[menuItems.indexOf('pause button: off')] = 'pause button: on';
+		}
 
 		for (i in 0...menuItems.length)
 		{ 
@@ -113,6 +116,10 @@ class OptionsMenu extends MusicBeatState
 				
 				case "downscroll: on" | "downscroll: off":
 					config.setdownscroll();
+					FlxG.resetState();
+
+				case "pause button: off" | "pause button: on":
+					config.setPause(!config.getPause());
 					FlxG.resetState();
 				
 				case "About":
