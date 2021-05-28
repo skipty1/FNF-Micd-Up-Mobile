@@ -41,7 +41,7 @@ class NoMods extends MusicBeatState
 		text.screenCenter();
 		text.y = text.y + 150;
 
-        if (NoMods)
+        if (unavailable)
         {
 		add(bg);
 		//add(logoBl);
