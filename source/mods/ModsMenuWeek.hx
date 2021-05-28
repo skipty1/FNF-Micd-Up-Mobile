@@ -34,14 +34,14 @@ class ModsMenuWeek extends MusicBeatState
 		['Satin-Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter-Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['song1', 'song2', 'song3']
+		['Screenplay', 'Parasite', 'A.G.O.T.I']
 	];
 	
 	var curWeekData:Array<Dynamic> = [];
 
 	public static var curDifficulty:Int = 2;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<String> = [
 		"gf",
@@ -50,6 +50,7 @@ class ModsMenuWeek extends MusicBeatState
 		"pico",
 		"mom",
 		"parents-christmas",
+		"senpai",
 		"senpai"
 	];
 
