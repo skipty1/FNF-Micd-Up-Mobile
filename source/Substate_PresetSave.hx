@@ -91,6 +91,13 @@ class Substate_PresetSave extends MusicBeatSubstate
     {
         super.update(elapsed);
 
+        for (touch in FlxG.touches.list)
+        {
+            if (!touch.overlaps(_virtualpad) && touch.justReleased){
+                if (!FlxG.stage.window.textInputEnabled) FlxG.stage.window.textInputEnabled = true;
+            }
+        }
+
         name.hasFocus = true;
 
         switch (name.text.toLowerCase())
