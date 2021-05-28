@@ -47,6 +47,9 @@ class MusicBeatState extends FlxUIState
 		#end
 	}
 	
+	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+	    remove(_virtualpad);
+	}
 	override function destroy() {
 		controls.removeFlxInput(trackedinputs);
 
@@ -54,6 +57,7 @@ class MusicBeatState extends FlxUIState
 	}
 	#else
 	public function addVirtualPad(?DPad, ?Action){};
+	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode){};
 	#end
 
 	override function create()
