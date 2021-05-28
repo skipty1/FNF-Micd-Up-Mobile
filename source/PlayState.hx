@@ -2079,7 +2079,7 @@ class PlayState extends MusicBeatState
 				accuracyTxt.text = "Accuracy: " + truncateFloat(accuracy, 2) + "%";
 				npsTxt.text = "NPS: " + nps;
 		
-				if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+				if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 				{
 					persistentUpdate = false;
 					persistentDraw = true;
