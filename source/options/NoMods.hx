@@ -49,7 +49,7 @@ class NoMods extends MusicBeatState
         }
         else
         {
-            FlxG.switchState(new mods.ModsMenu());
+            FlxG.switchState(new mods.ModsMenuWeek());
         }//just a test if it doesnt work. just lock the code -Zack
 
 //crap but better
