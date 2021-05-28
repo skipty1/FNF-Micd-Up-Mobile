@@ -41,9 +41,17 @@ class NoMods extends MusicBeatState
 		text.screenCenter();
 		text.y = text.y + 150;
 
+        if (NoMods)
+        {
 		add(bg);
 		//add(logoBl);
 		add(text);
+        }
+        else
+        {
+            FlxG.switchState(new mods.ModsMenu());
+        }//just a test if it doesnt work. just lock the code -Zack
+
 //crap but better
         #if mobileC
         addVirtualPad(NONE, A_B);
