@@ -197,7 +197,7 @@ class MenuFreeplay extends MusicBeatState
 		 */
 		 //crap but better
         #if mobileC
-        addVirtualPad(UP_DOWN, A_B);
+        addVirtualPad(FULL, A_B);
         #end
 		super.create();
 
