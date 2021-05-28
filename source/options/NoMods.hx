@@ -36,7 +36,7 @@ class NoMods extends MusicBeatState
 		logoBl.screenCenter();
 		logoBl.y = logoBl.y - 100;*/
 
-		text = new FlxText(0, 0, 0, "UH OH! IT LOOKS LIKE YOU HAVE\n" + "NO MODS INSTALLED.\n\n" + "press A to download the mods-menu patch\n" + "or press B to go back!", 64);
+		text = new FlxText(0, 0, 0, "UH OH! IT LOOKS LIKE YOU HAVE\n" + "NO MODS INSTALLED.\n\n" + "press A to download the mods-menu patch\n" + "or press B to go back!\n" + "", 64);
 		text.setFormat(Paths.font("Funkin.otf"), 32, FlxColor.WHITE, RIGHT);
 		text.screenCenter();
 		text.y = text.y + 150;
