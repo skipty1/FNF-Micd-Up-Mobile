@@ -94,6 +94,35 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
+			case 'gfa':
+				tex = Paths.getSparrowAtlas('agotee/GF_rock');
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
+	
+				addOffset('cheer');
+				addOffset('danceLeft', 0, 360);
+				addOffset('danceRight', 0, 360);
+	
+				addOffset("singUP", 0, 4);
+				addOffset("singRIGHT", 0, -20);
+				addOffset("singLEFT", 0, -19);
+				addOffset("singDOWN", 0, -20);
+				addOffset('hairBlow', 45, -8);
+				addOffset('hairFall', 0, -9);
+	
+				addOffset('scared', -2, -17);
+	
+				playAnim('danceRight');
+
 			case 'gf-car':
 				tex = Paths.getSparrowAtlas('characters/gfCar','shared');
 				frames = tex;
@@ -142,6 +171,40 @@ class Character extends FlxSprite
 				addOffset("singRIGHT", 0, 27);
 				addOffset("singLEFT", -10, 10);
 				addOffset("singDOWN", 0, -30);
+
+				playAnim('idle');
+			case 'agoti':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('agotee/AGOTI');
+				frames = tex;
+				animation.addByPrefix('idle', 'Agoti_Idle', 24);
+				animation.addByPrefix('singUP', 'Agoti_Up', 24);
+				animation.addByPrefix('singRIGHT', 'Agoti_Right', 24);
+				animation.addByPrefix('singDOWN', 'Agoti_Down', 24);
+				animation.addByPrefix('singLEFT', 'Agoti_Left', 24);
+
+				addOffset("idle", -10, 60);
+				addOffset("singUP", -10, 120);
+				addOffset("singRIGHT", -10, 70);
+				addOffset("singLEFT", 180, 90);
+				addOffset("singDOWN", -10, -65);
+
+				playAnim('idle');
+			case 'agoti-crazy':
+				// DAD ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('agotee/Alt_Agoti_Sprites_B');
+				frames = tex;
+				animation.addByPrefix('idle', 'Angry_Agoti_Idle', 24);
+				animation.addByPrefix('singUP', 'Angry_Agoti_Up', 24);
+				animation.addByPrefix('singRIGHT', 'Angry_Agoti_Right', 24);
+				animation.addByPrefix('singDOWN', 'Angry_Agoti_Down', 24);
+				animation.addByPrefix('singLEFT', 'Angry_Agoti_Left', 24);
+
+				addOffset("idle", -10, 60);
+				addOffset("singUP", -10, 120);
+				addOffset("singRIGHT", -10, 70);
+				addOffset("singLEFT", 180, 90);
+				addOffset("singDOWN", -10, -65);
 
 				playAnim('idle');
 			case 'spooky':
