@@ -883,11 +883,13 @@ class PlayState extends MusicBeatState
 
 		Conductor.songPosition = -5000;
 
-		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
+/*		var isDownScroll:Bool = new Config().getdownscroll();
+//DownScroll
+		strumLine = new FlxSprite(0, (isDownScroll ? FlxG.height - 150 : 50)).makeGraphic(FlxG.width, 10);
 		strumLine.scrollFactor.set();
 
 		strumLineNotes = new FlxTypedGroup<FlxSprite>();
-		add(strumLineNotes);
+		add(strumLineNotes);*///UNUSED CUZ THERE IS ALREADY DOWNSCROLL
 
 		if (_modifiers.InvisibleNotes)
 		{
