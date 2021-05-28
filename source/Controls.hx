@@ -15,7 +15,7 @@ import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
-import ui.PausePad;
+//import ui.PausePad;
 
 #if (haxe >= "4.0.0")
 enum abstract Action(String) to String from String
@@ -290,10 +290,10 @@ class Controls extends FlxActionSet
 		inline forEachBound(Control.RIGHT, (action, state) -> addbutton(action, hitbox.buttonRight, state));	
 	}
 
-    public function setPause(pbutton:PausePad) 
+    /*public function setPause(pbutton:PausePad) 
     {
         inline forEachBound(Control.PAUSE, (action, state) -> addbutton(action, pbutton.buttonP, state));
-    }//idk if this code will work -zack
+    }//idk if this code will work -zack*/
 
 	
 	public function setVirtualPad(virtualPad:FlxVirtualPad, ?DPad:FlxDPadMode, ?Action:FlxActionMode) {

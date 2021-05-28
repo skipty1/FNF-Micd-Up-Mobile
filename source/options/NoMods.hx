@@ -41,7 +41,8 @@ class NoMods extends MusicBeatState
 		text.screenCenter();
 		text.y = text.y + 150;
 
-        if (unavailable)
+		// unavailable is unavailable
+        if (false)
         {
 		add(bg);
 		//add(logoBl);

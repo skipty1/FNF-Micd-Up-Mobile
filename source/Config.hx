@@ -91,4 +91,14 @@ class Config {
 		if (save.data.framerate != null) return save.data.framerate;
 		return 60;
 	}
+
+	public function setPause(bool:Bool) {
+		save.data.pause = bool;
+		save.flush();
+	}
+
+	public function getPause():Bool {
+		if (save.data.pause != null) return save.data.pause;
+		return false; // false
+	}
 }
