@@ -725,6 +725,39 @@ class PlayState extends MusicBeatState
 			bg.scale.set(6, 6);
 			add(bg);
 		}
+		case 'screenplay' | 'parasite':
+		{
+			defaultCamZoom = 0.56;
+			curStage = 'stagee';
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('agotee/yo', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(0.9, 0.9);
+			bg.active = false;
+			bg.setGraphicSize(Std.int(bg.width * 10));
+			add(bg);
+
+			var loo:FlxSprite = new FlxSprite(100, 200);
+			loo.frames = Paths.getSparrowAtlas('agotee/The_void', 'shared');
+			loo.animation.addByPrefix('idle', 'VoidShift', 24);
+			loo.animation.play('idle');
+			loo.setGraphicSize(Std.int(bg.width * 1.5));
+			loo.scrollFactor.set(1, 1);
+			add(loo);
+
+			var bg:FlxSprite = new FlxSprite(-900, -750).loadGraphic(Paths.image('agotee/Void_Back', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(0.9, 0.9);
+			bg.setGraphicSize(Std.int(bg.width * 0.5));
+			bg.active = false;
+			add(bg);
+
+			var bg:FlxSprite = new FlxSprite(-900, -650).loadGraphic(Paths.image('agotee/Void_Front', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(1, 1);
+			bg.active = false;
+			add(bg);
+
+		}
 		default:
 		{
 			defaultCamZoom = 0.9;
@@ -774,6 +807,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
+			case 'stagee':
+				gfVersion = 'gfa';
 		}
 
 		if (curStage == 'limo')
@@ -883,13 +918,11 @@ class PlayState extends MusicBeatState
 
 		Conductor.songPosition = -5000;
 
-/*		var isDownScroll:Bool = new Config().getdownscroll();
-//DownScroll
-		strumLine = new FlxSprite(0, (isDownScroll ? FlxG.height - 150 : 50)).makeGraphic(FlxG.width, 10);
+		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
 		strumLine.scrollFactor.set();
 
 		strumLineNotes = new FlxTypedGroup<FlxSprite>();
-		add(strumLineNotes);*///UNUSED CUZ THERE IS ALREADY DOWNSCROLL
+		add(strumLineNotes);
 
 		if (_modifiers.InvisibleNotes)
 		{
@@ -2081,7 +2114,7 @@ class PlayState extends MusicBeatState
 				accuracyTxt.text = "Accuracy: " + truncateFloat(accuracy, 2) + "%";
 				npsTxt.text = "NPS: " + nps;
 		
-				if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end || controls.PAUSE && startedCountdown && canPause)
+				if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 				{
 					persistentUpdate = false;
 					persistentDraw = true;
