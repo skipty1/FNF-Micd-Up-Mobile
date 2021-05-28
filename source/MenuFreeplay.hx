@@ -36,6 +36,7 @@ class MenuFreeplay extends MusicBeatState
 	var scoreText:FlxText;
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
+	var Substated:Bool = false;
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
@@ -196,9 +197,13 @@ class MenuFreeplay extends MusicBeatState
 			trace(md);
 		 */
 		 //crap but better
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
+		if (!Substated)
+		{
+            #if mobileC
+            addVirtualPad(FULL, A_B);
+            #end
+		}
+
 		super.create();
 
 		FlxTween.tween(bg, { alpha:1}, 0.5, { ease: FlxEase.quartInOut});
@@ -353,6 +358,7 @@ class MenuFreeplay extends MusicBeatState
 				new FlxTimer().start(0.9, function(tmr:FlxTimer)
 					{
 						vocals.stop();
+						Substated = true;
 						FlxG.state.openSubState(new Substate_ChartType());
 					});
 			}
