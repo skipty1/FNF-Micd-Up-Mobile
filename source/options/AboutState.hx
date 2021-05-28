@@ -21,7 +21,7 @@ class AboutState extends MusicBeatState
 	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('pBG_Main'));
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Play_Checker'), 0.2, 0.2, true, true);
 	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
-	var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('Play_Bottom'));
+	//var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('Play_Bottom'));
 
 	var text:FlxText;
 
@@ -49,12 +49,12 @@ class AboutState extends MusicBeatState
 		add(checker);
 		checker.scrollFactor.set(0, 0.07);
 
-		side.scrollFactor.x = 0;
+		/*side.scrollFactor.x = 0;
 		side.scrollFactor.y = 0.1;
 		side.antialiasing = true;
 		side.screenCenter();
 		add(side);
-		side.y = FlxG.height - side.height/3*2;
+		side.y = FlxG.height - side.height/3*2;*/
 
 		logoBl = new FlxSprite(-150, -100);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -65,7 +65,7 @@ class AboutState extends MusicBeatState
 		logoBl.screenCenter();
 		logoBl.y = logoBl.y - 100;
 
-		text = new FlxText(0, 0, 0, "Version 1.0" + "\n" + "PORTED BY" + "\n" + "Luckydog7" + "zacksgamerz" + "\n" + "klaviergayming" + "\n" + "peppy", 64);
+		text = new FlxText(0, 0, 0, "Version 1.0" + "\n" + "PORTED BY" + "\n" + "Luckydog7" + "zacksgamerz" + "\n" + "klaviergayming" + "\n" + "peppy" + "\n", 64);
 		text.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		text.screenCenter();
 		text.y = text.y + 150;
