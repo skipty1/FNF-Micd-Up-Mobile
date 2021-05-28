@@ -340,22 +340,22 @@ class Endless_Substate extends MusicBeatSubstate
 
     public static function loadCurrent(songTitle:String, difficulty:Int)
     {
-        if (!FileSystem.isDirectory('presets/endless'))
-            FileSystem.createDirectory('presets/endless');
+        if (!FileSystem.isDirectory(Main.path + 'presets/endless'))
+            FileSystem.createDirectory(Main.path + 'presets/endless');
 
-        if (!FileSystem.exists('presets/endless/'+songTitle+'_'+difficulty))
+        if (!FileSystem.exists(Main.path + 'presets/endless/'+songTitle+'_'+difficulty))
             {
-                File.saveContent(('presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
+                File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
             }
         else
             {
-                var data:String = File.getContent('presets/endless/'+songTitle+'_'+difficulty);
+                var data:String = File.getContent(Main.path + 'presets/endless/'+songTitle+'_'+difficulty);
                 _endless = Json.parse(data);
             }
     }
 
     public static function saveCurrent(songTitle:String, difficulty:Int)
         {
-            File.saveContent(('presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
+            File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
         }
 }
