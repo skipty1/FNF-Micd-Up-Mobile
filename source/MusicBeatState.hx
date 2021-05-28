@@ -19,7 +19,7 @@ class MusicBeatState extends FlxUIState
 {
 	private var lastBeat:Float = 0;
 	private var lastStep:Float = 0;
-	public static var NoMods:Bool = true; //FOR MODS PATCH SHIT LATER
+	public static var unavailable:Bool = false; //FOR MODS PATCH SHIT LATER
 
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
