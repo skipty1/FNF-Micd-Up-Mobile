@@ -1,4 +1,4 @@
-package; //Hope this works.
+/*package; //Hope this works.
 
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -136,5 +136,5 @@ class Mobilecontrols extends FlxSpriteGroup
 			LEFT_R = _pad.buttonLeft.justReleased;
 		}
 	}
-}
+}*///locked the code cuz useless
 
