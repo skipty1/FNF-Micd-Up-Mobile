@@ -50,6 +50,7 @@ class MusicBeatSubstate extends FlxSubState
 		super.destroy();
 	}
 	#else
+	var _virtualpad:FlxVirtualPad;
 	public function addVirtualPad(?DPad, ?Action){};
 	#end
 
