@@ -355,7 +355,7 @@ class MenuFreeplay extends MusicBeatState
 				new FlxTimer().start(0.9, function(tmr:FlxTimer)
 					{
 						vocals.stop();
-						killpad(FULL, A_B);
+						//killpad(FULL, A_B);
 						FlxG.state.openSubState(new Substate_ChartType());
 					});
 			}
