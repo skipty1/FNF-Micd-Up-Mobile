@@ -48,7 +48,7 @@ jobs:
       - name: Create APIStuff
         run: echo "package;class APIStuff{public static var API:String = '';public static var EncKey:String = '';}" > source/APIStuff.hx
       - name: Compile
-        run: haxelib run lime build windows
+        run: haxelib run lime build android
       - name: Archive
         run: tar -czf bin.tar.gz export/release/windows/bin
       - name: Publish Artifact
@@ -57,7 +57,7 @@ jobs:
           name: windowsBuild
           path: bin.tar.gz
   buildAndroid:
-    runs-on: android-latest
+    runs-on: windows-latest
     
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
