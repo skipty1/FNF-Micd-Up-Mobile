@@ -727,8 +727,8 @@ class PlayState extends MusicBeatState
 		}
 		case 'screenplay' | 'parasite':
 		{
-			defaultCamZoom = 0.56;
-			curStage = 'stagee';
+			defaultCamZoom = 0.6;
+			curStage = 'void1';
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('agotee/yo', 'shared'));
 			bg.antialiasing = true;
 			bg.scrollFactor.set(0.9, 0.9);
@@ -807,7 +807,7 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
-			case 'stagee':
+			case 'void1':
 				gfVersion = 'gfa';
 		}
 
