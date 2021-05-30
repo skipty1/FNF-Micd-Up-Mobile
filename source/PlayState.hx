@@ -758,6 +758,10 @@ class PlayState extends MusicBeatState
 			add(bg);
 
 		}
+		case 'a.g.o.t.i':
+		{
+		    
+		}
 		default:
 		{
 			defaultCamZoom = 0.9;
