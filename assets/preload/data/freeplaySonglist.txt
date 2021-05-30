@@ -17,3 +17,6 @@ Winter-Horrorland:monster:5
 Senpai:senpai:6
 Roses:senpai:6
 Thorns:spirit:6
+Screenplay:agoti:7
+Parasite:agoti:7
+A.G.O.T.I:agoti:7
