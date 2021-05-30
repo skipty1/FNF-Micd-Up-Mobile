@@ -77,7 +77,7 @@ class Main extends Sprite
 
 		gameWidth = 1280;
 		gameHeight = 720;
-		zoom = 1; // im angry 
+		zoom = 1; // im angry //confused oonga boonga
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
