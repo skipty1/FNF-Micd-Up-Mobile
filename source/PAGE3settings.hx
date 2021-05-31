@@ -87,7 +87,10 @@ class PAGE3settings extends MusicBeatSubstate
         #if desktop
 			DiscordClient.changePresence("Settings page: GFX", null);
 		#end
-
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
     }
 
     function createResults():Void
@@ -268,6 +271,10 @@ class PAGE3settings extends MusicBeatSubstate
     
                     new FlxTimer().start(0.2, function(tmr:FlxTimer)
                         {
+                            //crap but better 2
+                            #if mobileC
+                            killpad(FULL, A_B);
+                            #end
                             if (Change == 1)
                                 openSubState(new PAGE4settings());
                             else
