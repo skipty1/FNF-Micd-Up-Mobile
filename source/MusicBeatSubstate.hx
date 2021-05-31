@@ -43,7 +43,9 @@ class MusicBeatSubstate extends FlxSubState
 		controls.addAndroidBack();
 		#end
 	}
-	
+	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+	    remove(_virtualpad);
+	}
 	override function destroy() {
 		controls.removeFlxInput(trackedinputs);
 
@@ -52,6 +54,7 @@ class MusicBeatSubstate extends FlxSubState
 	#else
 	var _virtualpad:FlxVirtualPad;
 	public function addVirtualPad(?DPad, ?Action){};
+	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode){};
 	#end
 
 	override function update(elapsed:Float)
