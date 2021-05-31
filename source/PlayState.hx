@@ -3979,6 +3979,15 @@ private function popUpScore(strumtime:Float):Void
 				upperBoppers.animation.play('bop', true);
 				bottomBoppers.animation.play('bop', true);
 				santa.animation.play('idle', true);
+		    case 'tank' | 'tank2':
+			{
+				tankBop1.animation.play('bop');
+				tankBop2.animation.play('bop');
+				tankBop3.animation.play('bop');
+				tankBop4.animation.play('bop');
+				tankBop5.animation.play('bop');
+				tankBop6.animation.play('bop');
+			}
 
 			case 'limo':
 				grpLimoDancers.forEach(function(dancer:BackgroundDancer)
