@@ -56,6 +56,7 @@ class PlayState extends MusicBeatState
 {
 	public static var curStage:String = '';
 	public static var SONG:SwagSong;
+	public static var PICO:SwagPico;
 	public static var gameplayArea:String = "Story";
 	public static var chartType:String = "standard";
 	public static var storyWeek:Int = 0;
@@ -87,6 +88,7 @@ class PlayState extends MusicBeatState
 	private var dad:Character;
 	private var gf:Character;
 	private var boyfriend:Boyfriend;
+	private var pico:Character; //uhhhh this is needed for speaker
 
 	private var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -257,6 +259,8 @@ class PlayState extends MusicBeatState
 
 		if (SONG == null)
 			SONG = Song.loadFromJson('tutorial');
+		if (SONG.song.toLowerCase() == 'stress')
+		    PICO = Pico.loadFromJson();
 
 		if (gameplayArea == "Endless")
 			SONG.speed = _endless.speed;
@@ -910,6 +914,8 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		dad = new Character(100, 100, SONG.player2);
+		if (SONG.song.toLowerCase() == 'stress')
+		    pico = new Character(400, 130, pico-speakers); //uhhh more pico shit
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1520,6 +1526,9 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 			gf.dance();
+			if (SONG.song.toLowerCase() == 'stress')
+			    pico.dance()
+
 			if (!frozen)
 			{
 				boyfriend.playAnim('idle');
