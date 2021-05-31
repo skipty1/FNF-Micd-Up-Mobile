@@ -1370,6 +1370,33 @@ class PlayState extends MusicBeatState
 		});
 	}
 
+//ugh cutscene, might use.
+    function ughIntro():Void
+    {
+        var funiCutscene:FlxSprite = new FlxSprite();
+        funiCutscene.frames = Paths.getSparrowAtlas('ugh_cutscene', 'week7');
+        funiCutscene.animation.addByPrefix('arse', 'ugh cutscene instance 1', 10, false);
+        funiCutscene.scrollFactor.set();
+        funiCutscene.setGraphicSize(Std.int(funiCutscene.width * 2));
+        funiCutscene.updateHitbox();
+        funiCutscene.screenCenter();
+        add(funiCutscene);
+
+
+        inCutscene = true;
+        FlxG.sound.play(Paths.sound('ughCutscene','week7'));
+        camHUD.visible = false;
+        funiCutscene.animation.play('arse');
+        FlxG.camera.zoom = 1.1;
+
+        new FlxTimer().start(12, function(swagTimer:FlxTimer)
+        {
+            remove(funiCutscene);
+            camHUD.visible = true;
+            startCountdown();
+        });
+    }
+
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
 
