@@ -247,6 +247,10 @@ class PAGE6settings extends MusicBeatSubstate
     
                     new FlxTimer().start(0.2, function(tmr:FlxTimer)
                         {
+                            //crap but better 2
+                            #if mobileC
+                            killpad(FULL, A_B);
+                            #end
                             if (Change == 1)
                                 openSubState(new PAGE1settings());
                             else
