@@ -56,7 +56,7 @@ class PlayState extends MusicBeatState
 {
 	public static var curStage:String = '';
 	public static var SONG:SwagSong;
-	public static var PICO:SwagPico;
+//	public static var PICO:SwagPico; no
 	public static var gameplayArea:String = "Story";
 	public static var chartType:String = "standard";
 	public static var storyWeek:Int = 0;
@@ -88,7 +88,7 @@ class PlayState extends MusicBeatState
 	private var dad:Character;
 	private var gf:Character;
 	private var boyfriend:Boyfriend;
-	private var pico:Character; //uhhhh this is needed for speaker
+// no	private var pico:Character; //uhhhh this is needed for speaker
 
 	private var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
@@ -259,8 +259,8 @@ class PlayState extends MusicBeatState
 
 		if (SONG == null)
 			SONG = Song.loadFromJson('tutorial');
-		if (SONG.song.toLowerCase() == 'stress')
-		    PICO = Pico.loadFromJson();
+		/*if (SONG.song.toLowerCase() == 'stress')
+		    PICO = Pico.loadFromJson();*///no
 
 		if (gameplayArea == "Endless")
 			SONG.speed = _endless.speed;
@@ -914,8 +914,8 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		dad = new Character(100, 100, SONG.player2);
-		if (SONG.song.toLowerCase() == 'stress')
-		    pico = new Character(400, 130, pico-speakers); //uhhh more pico shit
+		//if (SONG.song.toLowerCase() == 'stress')
+		    //pico = new Character(400, 130, pico-speakers); //uhhh more pico shit no
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1526,8 +1526,8 @@ class PlayState extends MusicBeatState
 		{
 			dad.dance();
 			gf.dance();
-			if (SONG.song.toLowerCase() == 'stress')
-			    pico.dance()
+			//if (SONG.song.toLowerCase() == 'stress')
+			    //pico.dance() no
 
 			if (!frozen)
 			{
@@ -2753,7 +2753,18 @@ class PlayState extends MusicBeatState
 							notes.remove(daNote, true);
 							daNote.destroy();
 						}
-		
+		/* no//pico shit
+						switch (Math.abs(daNote.noteData))//zack get here
+							{
+								case 0:
+									pico.playAnim('singLEFT' + altAnim, true);
+								case 1:
+									pico.playAnim('singDOWN' + altAnim, true);
+								case 2:
+									pico.playAnim('singUP' + altAnim, true);
+								case 3:
+									pico.playAnim('singRIGHT' + altAnim, true);
+							}*/
 						// WIP interpolation shit? Need to fix the pause issue
 						// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
 		
