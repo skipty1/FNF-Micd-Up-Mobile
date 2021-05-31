@@ -146,7 +146,6 @@ class PAGE1settings extends MusicBeatSubstate
     override function update(elapsed:Float)
         {
             super.update(elapsed);
-
             if (!selectedSomethin)
                 {
                     if (controls.UP_P)
@@ -331,6 +330,9 @@ class PAGE1settings extends MusicBeatSubstate
     
                     new FlxTimer().start(0.2, function(tmr:FlxTimer)
                         {
+                            #if mobileC
+                            killpad(FULL, A_B);
+                            #end
                             if (Change == 1)
                                 openSubState(new PAGE2settings());
                             else
