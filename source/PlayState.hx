@@ -2723,7 +2723,7 @@ class PlayState extends MusicBeatState
 									altAnim = '-alt';
 							}
 		
-							switch (Math.abs(daNote.noteData))
+							switch (Math.abs(daNote.noteData))//zack get here
 							{
 								case 0:
 									dad.playAnim('singLEFT' + altAnim, true);
