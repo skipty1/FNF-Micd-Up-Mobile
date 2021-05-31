@@ -1280,7 +1280,7 @@ class PlayState extends MusicBeatState
 					accuracy = 100.00;
 				else
 				{
-					accuracy = 99.98;
+					accuracy = 99.98; //wtf is this
 				}
 			}
 		
