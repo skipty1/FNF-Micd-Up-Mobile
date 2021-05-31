@@ -725,6 +725,58 @@ class PlayState extends MusicBeatState
 			bg.scale.set(6, 6);
 			add(bg);
 		}
+		case 'ugh' | 'guns':
+		{
+		    defaultCamZoom = 0.8;
+			curStage = 'tank';
+			var sky:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankSky','week7'));
+			sky.scrollFactor.set(0.9, 0.9);
+			add(sky);
+
+			var clouds:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankClouds','week7'));
+			add(clouds);
+
+			var mountains:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankMountains','week7'));
+			add(mountains);
+
+			var ruins:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankRuins','week7'));
+			add(ruins);
+
+			var buildings:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankBuildings','week7'));
+			add(buildings);
+
+			var watchtower:FlxSprite = new FlxSprite(100, 120);
+			watchtower.frames = Paths.getSparrowAtlas('tankWatchtower','week7');
+			watchtower.animation.addByPrefix('bop', 'watchtower gradient color instance 1', 24);
+			add(watchtower);
+			watchtower.animation.play('bop');
+
+			var ground:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('tankGround','week7'));
+			add(ground);
+
+			tankBop1 = new FlxSprite(-500,550);
+			tankBop1.frames = Paths.getSparrowAtlas('tank0','week7');
+			tankBop1.animation.addByPrefix('bop', 'fg tankhead far right instance 1', 24);
+			tankBop2 = new FlxSprite(-300,650);
+			tankBop2.frames = Paths.getSparrowAtlas('tank1','week7');
+			tankBop2.animation.addByPrefix('bop','fg tankhead 5 instance 1', 24);
+
+			tankBop3 = new FlxSprite(450,840);
+			tankBop3.frames = Paths.getSparrowAtlas('tank2','week7');
+			tankBop3.animation.addByPrefix('bop','foreground man 3 instance 1', 24);
+
+			tankBop4 = new FlxSprite(1300,1100);
+			tankBop4.frames = Paths.getSparrowAtlas('tank3','week7');
+			tankBop4.animation.addByPrefix('bop','fg tankhead 4 instance 1', 24);
+
+			tankBop5 = new FlxSprite(1300,800);
+			tankBop5.frames = Paths.getSparrowAtlas('tank4','week7');
+			tankBop5.animation.addByPrefix('bop','fg tankman bobbin 3 instance 1', 24);
+			
+			tankBop6 = new FlxSprite(1620,600);
+			tankBop6.frames = Paths.getSparrowAtlas('tank5','week7');
+			tankBop6.animation.addByPrefix('bop','fg tankhead far right instance 1', 24);
+		}
 		case 'screenplay' | 'parasite':
 		{
 			defaultCamZoom = 0.6;
@@ -761,7 +813,7 @@ class PlayState extends MusicBeatState
 		case 'a.g.o.t.i':
 		{
 			defaultCamZoom = 0.6;
-			curStage = 'void1';
+			curStage = 'void2';
 			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('agotee/yo', 'shared'));
 			bg.antialiasing = true;
 			bg.scrollFactor.set(0.9, 0.9);
@@ -941,6 +993,16 @@ class PlayState extends MusicBeatState
 
 		add(dad);
 		add(boyfriend);
+
+		if (curStage == 'tank' || curStage == 'tank2')
+		{
+			add(tankBop1);
+			add(tankBop2);
+			add(tankBop3);
+			add(tankBop4);
+			add(tankBop5);
+			add(tankBop6);
+		}
 
 		doof = new DialogueBox(false, dialogue);
 		// doof.x += 70;
