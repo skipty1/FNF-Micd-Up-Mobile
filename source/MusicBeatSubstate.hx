@@ -54,7 +54,7 @@ class MusicBeatSubstate extends FlxSubState
 	#else
 	var _virtualpad:FlxVirtualPad;
 	public function addVirtualPad(?DPad, ?Action){};
-	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode){};
+	public function killpad(?DPad, ?Action){};
 	#end
 
 	override function update(elapsed:Float)
