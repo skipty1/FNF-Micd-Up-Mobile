@@ -891,8 +891,12 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
-			case 'void1':
+			case 'void1' | 'void2':
 				gfVersion = 'gfa';
+			case 'tank1':
+			    gfVersion = 'gf-tankman'
+			case 'tank2':
+			    gfVersion = 'pico-speakers'
 		}
 
 		if (curStage == 'limo')
