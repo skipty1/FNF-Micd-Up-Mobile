@@ -1935,6 +1935,11 @@ class PlayState extends MusicBeatState
 
 	var noteOutput:Float = 0;
 
+    function camshake();
+    {
+        FlxG.camera.shake(0.04, 0.1);
+    }
+
 	private function generateStaticArrows(player:Int):Void
 	{
 		for (i in 0...4)
@@ -2481,6 +2486,13 @@ class PlayState extends MusicBeatState
 						if (SONG.song.toLowerCase() == 'tutorial')
 						{
 							tweenCamIn();
+						}
+						if (SONG.song.toLowerCase() == 'a.g.o.t.i')
+						{ //agoti shake cod
+						    if (dad.animation.curAnim.play == 'singLEFT' || dad.animation.curAnim.play == 'singRIGHT' || dad.animation.curAnim.play == 'singUP' || dad.animation.curAnim.play == 'singDOWN')//anjim
+						    {
+						        camshake();
+						    }
 						}
 					}
 		
