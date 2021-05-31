@@ -1211,6 +1211,8 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY', 'shared'), _variables.svolume/100);
 					FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX', 'shared'), _variables.svolume/100);
 					dialogueOrCountdown();
+				case 'ugh':
+				    ughIntro();
 				default:
 					dialogueOrCountdown();
 			}
@@ -1356,10 +1358,6 @@ class PlayState extends MusicBeatState
 								});
 							}
 						});
-					}
-					if (SONG.song.toLowerCase() == 'ugh')
-					{
-					    ughIntro();
 					}
 					else
 					{
