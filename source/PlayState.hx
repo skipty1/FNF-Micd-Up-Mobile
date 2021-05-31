@@ -760,7 +760,35 @@ class PlayState extends MusicBeatState
 		}
 		case 'a.g.o.t.i':
 		{
-		    
+			defaultCamZoom = 0.6;
+			curStage = 'void1';
+			var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('agotee/yo', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(0.9, 0.9);
+			bg.active = false;
+			bg.setGraphicSize(Std.int(bg.width * 10));
+			add(bg);
+
+			var loo:FlxSprite = new FlxSprite(100, 200);
+			loo.frames = Paths.getSparrowAtlas('agotee/The_void', 'shared');
+			loo.animation.addByPrefix('idle', 'VoidShift', 24);
+			loo.animation.play('idle');
+			loo.setGraphicSize(Std.int(bg.width * 1.5));
+			loo.scrollFactor.set(1, 1);
+			add(loo);
+
+			var bg:FlxSprite = new FlxSprite(-900, -750).loadGraphic(Paths.image('agotee/Void_Back', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(0.9, 0.9);
+			bg.setGraphicSize(Std.int(bg.width * 0.5));
+			bg.active = false;
+			add(bg);
+
+			var bg:FlxSprite = new FlxSprite(-900, -650).loadGraphic(Paths.image('agotee/Void_Front', 'shared'));
+			bg.antialiasing = true;
+			bg.scrollFactor.set(1, 1);
+			bg.active = false;
+			add(bg);
 		}
 		default:
 		{
