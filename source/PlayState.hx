@@ -1357,6 +1357,10 @@ class PlayState extends MusicBeatState
 							}
 						});
 					}
+					if (SONG.song.toLowerCase() == 'ugh')
+					{
+					    ughIntro();
+					}
 					else
 					{
 						add(dialogueBox);
