@@ -839,13 +839,29 @@ class PlayState extends MusicBeatState
 			loo.scrollFactor.set(1, 1);
 			add(loo);
 
-			var bg:FlxSprite = new FlxSprite(-900, -750).loadGraphic(Paths.image('agotee/Void_Back', 'shared'));
-			bg.antialiasing = true;
-			bg.scrollFactor.set(0.9, 0.9);
-			bg.setGraphicSize(Std.int(bg.width * 0.5));
-			bg.active = false;
-			add(bg);
+            var pillarbehind:FlxSprite = new FlxSprite(100, 200);
+            pillarbehind.frames = Paths.getSparrowAtlas('agotee/Pillar_BG', 'shared');
+            pillarbehind.animation.addByPrefix('idle', 'Pillar_BG');
+            pillarbehind.animation.play('idle');
+            pillarbehind.setGraphicSize(Std.int(bg.width * 1.5));
+            pillarbehind.scrollFactor.set(1, 1);
+            add(pillarbehind);
 
+            var pillar:FlxSprite = new FlxSprite(100, 200);
+            pillar.frames = Paths.getSparrowAtlas('agotee/Pillar_BG_Stage', 'shared');
+            pillar.animation.addByPrefix('idle', 'Pillar_BG_Stage');
+            pillar.animation.play('idle');
+            pillar.setGraphicSize(Std.int(bg.width * 1.5));
+            pillar.scrollFactor.set(1, 1);
+            add(pillar);
+
+            var pillarfront:FlxSprite = new FlxSprite(100, 200);
+            pillarfront.frames = Paths.getSparrowAtlas('agotee/Pillar_1', 'shared');
+            pillarfront.animation.addByPrefix('idle', 'Pillar');
+            pillarfront.setGraphicSize(Std.int(bg.width * 1.5));
+            pillarfront.scrollFactor.set(1, 1);
+            add(pillarfront);
+//forgot the stage for this so usin the void1 ones
 			var bg:FlxSprite = new FlxSprite(-900, -650).loadGraphic(Paths.image('agotee/Void_Front', 'shared'));
 			bg.antialiasing = true;
 			bg.scrollFactor.set(1, 1);
