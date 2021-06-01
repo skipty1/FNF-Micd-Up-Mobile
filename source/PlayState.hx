@@ -1965,7 +1965,7 @@ class PlayState extends MusicBeatState
 
 	var noteOutput:Float = 0;
 
-    function camshake();
+    function camshake()
     {
         FlxG.camera.shake(0.04, 0.1);
     }
