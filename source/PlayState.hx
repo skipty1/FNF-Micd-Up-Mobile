@@ -927,8 +927,10 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
-			case 'void1' | 'void2':
+			case 'void1':
 				gfVersion = 'gfa';
+			case 'void2':
+			    gfVersion = 'gfa2';
 			case 'tank1':
 			    gfVersion = 'gf-tankman';
 			case 'tank2':
