@@ -920,9 +920,9 @@ class PlayState extends MusicBeatState
 			case 'void1' | 'void2':
 				gfVersion = 'gfa';
 			case 'tank1':
-			    gfVersion = 'gf-tankman'
+			    gfVersion = 'gf-tankman';
 			case 'tank2':
-			    gfVersion = 'pico-speakers'
+			    gfVersion = 'pico-speakers';
 		}
 
 		if (curStage == 'limo')
