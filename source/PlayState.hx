@@ -1128,14 +1128,8 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = _variables.scoreDisplay;
 
 //funi coding go brrr part 2
-        funiRating = new FlxSprite(1000, 550);
-        funiRating.frames = Paths.getSparrowAtlas('ratings','shared');
-        funiRating.animation.addByPrefix('kewl', 'kewl');
-        funiRating.animation.addByPrefix('ayy', 'ayyy');
-        funiRating.animation.addByPrefix('angy', 'angy');
-        funiRating.animation.addByPrefix('ded','ded');
+        funiRating = new FlxSprite(1000, 550).loadGraphic(Paths.image('rankings/$ranking'));
         add(funiRating);
-        funiRating.animation.play('kewl');
 
 		missTxt = new FlxText(scoreTxt.x, scoreTxt.y - 26, 0, "", 20);
 		if (_variables.scroll == "down")
@@ -2181,6 +2175,7 @@ class PlayState extends MusicBeatState
 
 		override public function update(elapsed:Float)
 			{
+			    //MOVE TO A FUNCTION IF SHIT DOESNT WORK
 	            if (misses == 0 && bads == 0 && shits == 0 && goods == 0) // Marvelous (SICK) Full Combo
 		            comboRank = "MFC";
 		        else if (misses == 0 && bads == 0 && shits == 0 && goods >= 1) // Good Full Combo (Nothing but Goods & Sicks)
