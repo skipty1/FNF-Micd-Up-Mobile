@@ -27,7 +27,8 @@ using StringTools;
 class MenuFreeplay extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
-
+	var beatArray:Array<Int> = [100, 100, 120,180,150,165,130,150,175,165,110,125,180  ];
+	var defaultCamZoom:Float = 1;
 	var selector:FlxText;
 
 	public static var curSelected:Int = 0;
@@ -37,8 +38,11 @@ class MenuFreeplay extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
+	var songWait:FlxTimer = new FlxTimer();
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
+
+	private var iconArray:Array<HealthIcon> = [];
 
 	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('fBG_Main'));
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Free_Checker'), 0.2, 0.2, true, true);
@@ -63,6 +67,7 @@ class MenuFreeplay extends MusicBeatState
 		FlxG.game.scaleY = 1;
 		FlxG.game.y = 0;
 		
+		Conductor.changeBPM(110);
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 
 		for (i in 0...initSonglist.length)
@@ -248,6 +253,15 @@ class MenuFreeplay extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		for (i in 0...iconArray.length)
+			{
+				iconArray[i].animation.curAnim.curFrame = 0;
+			}
+		iconArray[curSelected].animation.curAnim.curFrame = 2;
+		FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, 0.95);
+
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 
 		rank.x = disc.x + disc.width - 50;
 
@@ -413,6 +427,19 @@ class MenuFreeplay extends MusicBeatState
 		sprDifficulty.x = FlxG.width/2 - sprDifficulty.width/2;
 	}
 
+	override function beatHit()
+		{
+			super.beatHit();
+			trace(curBeat);
+
+			iconBop();
+
+			if (FlxG.camera.zoom < 1.35 && songs[curSelected].songName.toLowerCase() == 'milf' && curBeat >= 8)
+				{
+					FlxG.camera.zoom += 0.030;
+				}
+		}
+
 	function changeSelection(change:Int = 0)
 	{
 
@@ -536,6 +563,11 @@ class MenuFreeplay extends MusicBeatState
 		disc.animation.play(songs[curSelected].songCharacter);
 		discIcon.animation.play(songs[curSelected].songCharacter);
 	}
+
+	function iconBop(?_scale:Float = 1.25, ?_time:Float = 0.2):Void {
+		iconArray[curSelected].iconScale = iconArray[curSelected].defualtIconScale * _scale;
+		FlxTween.tween(iconArray[curSelected], {iconScale: iconArray[curSelected].defualtIconScale}, _time, {ease: FlxEase.quintOut});
+		}
 }
 
 class SongMetadata
