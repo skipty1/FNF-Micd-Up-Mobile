@@ -93,6 +93,9 @@ class PlayState extends MusicBeatState
 	private var notes:FlxTypedGroup<Note>;
 	private var unspawnNotes:Array<Note> = [];
 
+//haha funi rating go brrrrr part 1
+    var funiRating:FlxSprite;
+
 	private var strumLine:FlxSprite;
 	private var curSection:Int = 0;
 
@@ -183,6 +186,9 @@ class PlayState extends MusicBeatState
 	var paparazziInt:Int = 0;
 	var missCounter:Int = 0;
 	var frozen:Bool = false;
+
+	var comboRank:String = "N/A";
+	var ranking:String = "N/A";
 
 	public static var campaignScore:Int = 0;
 
@@ -1120,6 +1126,16 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
 		scoreTxt.visible = _variables.scoreDisplay;
+
+//funi coding go brrr part 2
+        funiRating = new FlxSprite(1000, 550);
+        funiRating.frames = Paths.getSparrowAtlas('ratings','shared');
+        funiRating.animation.addByPrefix('kewl', 'kewl');
+        funiRating.animation.addByPrefix('ayy', 'ayyy');
+        funiRating.animation.addByPrefix('angy', 'angy');
+        funiRating.animation.addByPrefix('ded','ded');
+        add(funiRating);
+        funiRating.animation.play('kewl');
 
 		missTxt = new FlxText(scoreTxt.x, scoreTxt.y - 26, 0, "", 20);
 		if (_variables.scroll == "down")
@@ -2165,6 +2181,82 @@ class PlayState extends MusicBeatState
 
 		override public function update(elapsed:Float)
 			{
+	            if (misses == 0 && bads == 0 && shits == 0 && goods == 0) // Marvelous (SICK) Full Combo
+		            comboRank = "MFC";
+		        else if (misses == 0 && bads == 0 && shits == 0 && goods >= 1) // Good Full Combo (Nothing but Goods & Sicks)
+		        	comboRank = "GFC";
+	        	else if (misses == 0) // Regular FC
+	        		comboRank = "FC";
+	        	else if (misses < 10) // Single Digit Combo Breaks
+	        		comboRank = "SDCB";
+
+	        	// WIFE TIME :)))) (based on Wife3)
+
+	        	var wifeConditions:Array<Bool> = [
+	        		accuracy >= 99.9935, // P
+	        		accuracy >= 99.980, // X
+	        		accuracy >= 99.950, // X-
+	        		accuracy >= 99.90, // SS+
+		        	accuracy >= 99.80, // SS
+	        		accuracy >= 99.70, // SS-
+	        		accuracy >= 99.50, // S+
+	        		accuracy >= 99, // S
+	        		accuracy >= 96.50, // S-
+	        		accuracy >= 93, // A+
+	        		accuracy >= 90, // A
+	        		accuracy >= 85, // A-
+	        		accuracy >= 80, // B
+	        		accuracy >= 70, // C
+	        		accuracy >= 60, // D
+	        		accuracy < 60 // E
+	        	];
+
+	        	for(i in 0...wifeConditions.length)
+	        	{
+	        		var b = wifeConditions[i];
+	        		if (b)
+	        		{
+	        			rankingNum = i;
+	        			switch(i)
+	        			{
+	        				case 0:
+	        					ranking = "P";
+	        				case 1:
+	        					ranking = "X";
+		        			case 2:
+	        					ranking = "X-";
+		        		    case 3:
+		        				ranking = "SS+";
+		        			case 4:
+		        				ranking = "SS";
+		        			case 5:
+		        				ranking = "SS-";
+		        			case 6:
+		        				ranking = "S+";
+		        			case 7:
+		        				ranking = "S";
+		        			case 8:
+		        				ranking = "S-";
+		        			case 9:
+			        			ranking = "A+";
+		    	    		case 10:
+		        				ranking = "A";
+		        			case 11:
+		        				ranking = "A-";
+		        			case 12:
+		        				ranking = "B";
+		        			case 13:
+		        				ranking = "C";
+		        			case 14:
+		        				ranking = "D";
+		        			case 15:
+		        				ranking = "E"
+		        		}
+		        		break;//AAAAAA
+	        		}
+	        	}
+
+
 				#if !debug
 				perfectMode = false;
 				#end
