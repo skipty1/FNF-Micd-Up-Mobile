@@ -853,7 +853,7 @@ class PlayState extends MusicBeatState
             pillarbehind.frames = Paths.getSparrowAtlas('agotee/Pillar_BG', 'shared');
             pillarbehind.animation.addByPrefix('idle', 'Pillar_BG');
             pillarbehind.animation.play('idle');
-            pillarbehind.setGraphicSize(Std.int(bg.width * 1.5));
+            pillarbehind.setGraphicSize(Std.int(bg.width * 1.1));
             pillarbehind.scrollFactor.set(1, 1);
             add(pillarbehind);
 
@@ -861,14 +861,14 @@ class PlayState extends MusicBeatState
             pillar.frames = Paths.getSparrowAtlas('agotee/Pillar_BG_Stage', 'shared');
             pillar.animation.addByPrefix('idle', 'Pillar_BG_Stage');
             pillar.animation.play('idle');
-            pillar.setGraphicSize(Std.int(bg.width * 1.5));
+            pillar.setGraphicSize(Std.int(bg.width * 1.1));
             pillar.scrollFactor.set(1, 1);
             add(pillar);
 
             var pillarfront:FlxSprite = new FlxSprite(100, 200);
             pillarfront.frames = Paths.getSparrowAtlas('agotee/Pillar_1', 'shared');
             pillarfront.animation.addByPrefix('idle', 'Pillar');
-            pillarfront.setGraphicSize(Std.int(bg.width * 1.5));
+            pillarfront.setGraphicSize(Std.int(bg.width * 1.1));
             pillarfront.scrollFactor.set(1, 1);
             add(pillarfront);
 //forgot the stage for this so usin the void1 ones
@@ -1026,8 +1026,10 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 			case 'void2':
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				add(evilTrail);
+				//var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				//add(evilTrail);
+				boyfriend.x += 150;
+				gf.y += 150;
 		}
 
 		add(gf);
@@ -4112,7 +4114,12 @@ private function popUpScore(strumtime:Float):Void
 		}
 
 		if (SONG.song.toLowerCase() == 'a.g.o.t.i')
-			{ //agoti shake cod
+			{//agoti shake cod
+			    if (curStage == 'void2')
+			    {
+			        var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				    add(evilTrail);
+			    }
 				if (dad.animation.curAnim.name == 'singLEFT' || dad.animation.curAnim.name == 'singRIGHT' || dad.animation.curAnim.name == 'singUP' || dad.animation.curAnim.name == 'singDOWN')//anjim
 				{
 					FlxG.camera.shake(0.02, 0.2);
