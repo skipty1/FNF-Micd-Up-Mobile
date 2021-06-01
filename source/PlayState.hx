@@ -113,6 +113,7 @@ class PlayState extends MusicBeatState
 	private var curSong:String = "";
 
 	private var gfSpeed:Int = 1;
+	var rankingNum:Int = 15;
 	private var health:Float = 1;
 	private var combo:Int = 0;
 
@@ -198,6 +199,15 @@ class PlayState extends MusicBeatState
 	public static var daPixelZoom:Float = 6;
 
 	var inCutscene:Bool = false;
+
+	// ZACK U ARE STUPID LOL /j
+	var tankBop1:FlxSprite;
+	var tankBop2:FlxSprite;
+	var tankBop3:FlxSprite;
+	var tankBop4:FlxSprite;
+	var tankBop5:FlxSprite;
+	var tankBop6:FlxSprite;
+	// LOLOOOOLOLOLOLOLOLOL /j
 
 	#if desktop
 	// Discord RPC variables
@@ -2265,7 +2275,7 @@ class PlayState extends MusicBeatState
 		        			case 14:
 		        				ranking = "D";
 		        			case 15:
-		        				ranking = "E"
+		        				ranking = "E";
 		        		}
 		        		break;//AAAAAA
 	        		}
@@ -2362,7 +2372,7 @@ class PlayState extends MusicBeatState
 				accuracyTxt.text = "Accuracy: " + truncateFloat(accuracy, 2) + "%";
 				npsTxt.text = "NPS: " + nps;
 		
-				if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end || mcontrols._pause.justReleased && startedCountdown && canPause)
+				if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end #if mobileC || mcontrols._pause.justReleased #end && startedCountdown && canPause)
 				{
 					persistentUpdate = false;
 					persistentDraw = true;
@@ -2594,13 +2604,7 @@ class PlayState extends MusicBeatState
 						{
 							tweenCamIn();
 						}
-						if (SONG.song.toLowerCase() == 'a.g.o.t.i')
-						{ //agoti shake cod
-						    if (dad.animation.curAnim.play == 'singLEFT' || dad.animation.curAnim.play == 'singRIGHT' || dad.animation.curAnim.play == 'singUP' || dad.animation.curAnim.play == 'singDOWN')//anjim
-						    {
-						        camshake();
-						    }
-						}
+
 					}
 		
 					if (PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
@@ -4106,6 +4110,14 @@ private function popUpScore(strumtime:Float):Void
 		{
 			boyfriend.playAnim('hey', true);
 		}
+
+		if (SONG.song.toLowerCase() == 'a.g.o.t.i')
+			{ //agoti shake cod
+				if (dad.animation.curAnim.name == 'singLEFT' || dad.animation.curAnim.name == 'singRIGHT' || dad.animation.curAnim.name == 'singUP' || dad.animation.curAnim.name == 'singDOWN')//anjim
+				{
+					FlxG.camera.shake(0.02, 0.2);
+				}
+			}
 
 		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 		{
