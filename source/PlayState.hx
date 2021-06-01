@@ -1129,6 +1129,7 @@ class PlayState extends MusicBeatState
 
 //funi coding go brrr part 2
         funiRating = new FlxSprite(1000, 550).loadGraphic(Paths.image('rankings/$ranking'));
+        funiRating.setGraphicSize(0,140);
         add(funiRating);
 
 		missTxt = new FlxText(scoreTxt.x, scoreTxt.y - 26, 0, "", 20);
