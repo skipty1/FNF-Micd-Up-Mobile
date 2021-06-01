@@ -6,6 +6,8 @@ import flixel.FlxSubState;
 #if mobileC
 import ui.FlxVirtualPad;
 import flixel.input.actions.FlxActionInput;
+#else
+import ui.FlxVirtualPad;
 #end
 
 class MusicBeatSubstate extends FlxSubState
