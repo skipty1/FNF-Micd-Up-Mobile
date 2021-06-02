@@ -989,6 +989,9 @@ class PlayState extends MusicBeatState
 				dad.x -= 150;
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'agoti-crazy':
+			    //dad.x -= 150;
+			    dad.y += 100;
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -1030,8 +1033,8 @@ class PlayState extends MusicBeatState
 			case 'void2':
 				//var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
 				//add(evilTrail);
-				boyfriend.x += 150;
-				gf.y += 150;
+				boyfriend.x += 100;
+				gf.y -= 150;
 		}
 
 		add(gf);
