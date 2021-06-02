@@ -20,7 +20,7 @@ class BugDisclaimerState extends MusicBeatState
 	var txt:FlxText = new FlxText(0, 360, FlxG.width,
 		"You are now in version '1.4' of the port\n"
 		+ "The bugs in this version are as the following:\n"
-		+ "IDFK KNOW LOL\n\n"
+		+ "AGOTI's background\nIdk what else\n\n"
 		+ "If you found any extra bugs, be sure to go to our github by pressing B\n"
 		+ "Now with that out of the way, I hope you'll enjoy this FNF mod.\nFunk all the way.\nPress ENTER or A to proceed",
 		32);
