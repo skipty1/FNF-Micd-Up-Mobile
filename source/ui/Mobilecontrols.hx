@@ -42,6 +42,8 @@ class Mobilecontrols extends FlxSpriteGroup
 				_hitbox = new Hitbox();
 				add(_hitbox);
 			case KEYBOARD:
+			case DOUBLE:
+			    initVirtualPad(3);//go to FlxVirtualPad line 101
 		}
 
 		_pause = new PauseButton();
@@ -62,6 +64,8 @@ class Mobilecontrols extends FlxSpriteGroup
 			case 2:
 				_virtualPad = new FlxVirtualPad(FULL, NONE);
 				_virtualPad = config.loadcustom(_virtualPad);
+			case 3:
+			    _virtualPad = new FlxVirtualPad(DOUBLE, NONE);
 			default: // 0
 				_virtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
 		}
@@ -78,6 +82,7 @@ class Mobilecontrols extends FlxSpriteGroup
 			case 2: KEYBOARD;
 			case 3: VIRTUALPAD_CUSTOM;
 			case 4:	HITBOX;
+			case 5: DOUBLE;
 
 			default: VIRTUALPAD_RIGHT;
 
@@ -91,4 +96,5 @@ enum ControlsGroup {
 	KEYBOARD;
 	VIRTUALPAD_CUSTOM;
 	HITBOX;
+	DOUBLE;
 }
