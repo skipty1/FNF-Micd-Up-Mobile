@@ -4117,11 +4117,6 @@ private function popUpScore(strumtime:Float):Void
 
 		if (SONG.song.toLowerCase() == 'a.g.o.t.i')
 			{//agoti shake cod
-			    if (curStage == 'void2')
-			    {
-			        var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				    add(evilTrail);
-			    }
 				if (dad.animation.curAnim.name == 'singLEFT' || dad.animation.curAnim.name == 'singRIGHT' || dad.animation.curAnim.name == 'singUP' || dad.animation.curAnim.name == 'singDOWN')//anjim
 				{
 					FlxG.camera.shake(0.02, 0.2);
