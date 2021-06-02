@@ -96,6 +96,7 @@ class PauseSubState extends MusicBeatSubstate
 		//crap but better
         #if mobileC
         addVirtualPad(UP_DOWN, A_B);
+		_virtualpad.cameras = cameras;
         #end
 	}
 
