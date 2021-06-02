@@ -90,7 +90,7 @@ class PAGE5settings extends MusicBeatSubstate
 		#end
 		//crap but better
         #if mobileC
-        addVirtualPad(UP_DOWN, A_B);
+        addVirtualPad(FULL, A_B);
         #end
     }
 

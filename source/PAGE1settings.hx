@@ -30,7 +30,7 @@ class PAGE1settings extends MusicBeatSubstate
 {
 
     var menuItems:FlxTypedGroup<FlxSprite>;
-    var optionShit:Array<String> = ['page', 'resolution', 'fullscreen', 'fpsCounter', 'fps', 'memory', 'brightness', 'gamma', 'filter', 'watermark'];
+    var optionShit:Array<String> = ['page', 'controls', 'resolution', 'fullscreen', 'fpsCounter', 'fps', 'memory', 'brightness', 'gamma', 'filter', 'watermark'];
 
     private var grpSongs:FlxTypedGroup<Alphabet>;
     var selectedSomethin:Bool = false;
@@ -169,6 +169,11 @@ class PAGE1settings extends MusicBeatSubstate
                     {
                         changeStuff(1);
                     }
+
+                    if (controls.ACCEPT)
+                    {
+                        if (optionShit[curSelected] == 'controls') FlxG.switchState(new options.CustomControlsState());
+                    }
                 
                     if (controls.BACK)
                         {
@@ -198,6 +203,9 @@ class PAGE1settings extends MusicBeatSubstate
             
             switch (optionShit[curSelected])
             {
+                case "controls":
+                    ResultText.text = 'mobile controls';
+                    ExplainText.text = " controls:\n Change mobile controls.";
                 case "resolution":
                     ResultText.text = FlxG.width*_variables.resolution+"x"+FlxG.height*_variables.resolution;
                     ExplainText.text = "RESOLUTION:\nChange the resolution of your game.";
@@ -271,6 +279,8 @@ class PAGE1settings extends MusicBeatSubstate
 		{
 			switch (optionShit[curSelected])
 			{
+                case "controls":
+                    FlxG.switchState(new options.CustomControlsState());
 				case "resolution":
 					_variables.resolution += Change/2;
 					if (_variables.resolution < 1)

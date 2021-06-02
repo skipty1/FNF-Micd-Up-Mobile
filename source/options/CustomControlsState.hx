@@ -133,7 +133,7 @@ class CustomControlsState extends MusicBeatSubstate
 
 		var savebutton = new FlxUIButton((exitbutton.x + exitbutton.width + 25),25,"exit and save",() -> {
 			save();
-			FlxG.switchState(new OptionsMenu());
+			FlxG.switchState(new SettingsState());
 		});
 		savebutton.resize(250,50);
 		savebutton.setLabelFormat("VCR OSD Mono",24,FlxColor.BLACK,"center");
@@ -187,7 +187,7 @@ class CustomControlsState extends MusicBeatSubstate
 		var androidback:Bool = false;
 		#end
 		if (exitbutton.justReleased || androidback){
-			FlxG.switchState(new options.OptionsMenu());
+			FlxG.switchState(new SettingsState());
 		}
 		
 		for (touch in FlxG.touches.list){
