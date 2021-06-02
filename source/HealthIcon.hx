@@ -9,10 +9,6 @@ class HealthIcon extends FlxSprite
 	 */
 	public var sprTracker:FlxSprite;
 
-	public var iconScale:Float = 1;
-	public var iconSize:Float;
-	public var defualtIconScale:Float = 1;
-
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
@@ -55,19 +51,10 @@ class HealthIcon extends FlxSprite
 				}
 		}
 		scrollFactor.set();
-
-		iconScale = defualtIconScale;
-		iconSize = width;
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-
-		setGraphicSize(Std.int(iconSize * iconScale));
-		updateHitbox();
-
-		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
 	}
 }
