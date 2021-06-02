@@ -67,7 +67,7 @@ class BugDisclaimerState extends MusicBeatState
 		}
 		if (controls.BACK || BACK)
 		{
-		    FlxG.openUrl('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile');
+		    FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile');
 		    FlxG.switchState(new TitleState());
 		}
 		super.update(elapsed);

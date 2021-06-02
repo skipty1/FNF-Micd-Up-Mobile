@@ -71,8 +71,6 @@ class ModifierVariables
 {
     public static var _modifiers:ModiVariables;
 
-    public static var path:String = lime.system.System.applicationStorageDirectory;
-
     public static function updateModifiers():Void
     {
         _modifiers = {
@@ -170,20 +168,20 @@ class ModifierVariables
     public static function saveCurrent():Void
     {
 
-        if (!FileSystem.isDirectory(path + 'presets/modifiers'))
-            FileSystem.createDirectory(path + 'presets/modifiers');
+        if (!FileSystem.isDirectory(Main.path + 'presets/modifiers'))
+            FileSystem.createDirectory(Main.path + 'presets/modifiers');
 
-        File.saveContent((path + 'presets/modifiers/current'), Json.stringify(_modifiers));
+        File.saveContent((Main.path + 'presets/modifiers/current'), Json.stringify(_modifiers));
     }
 
     public static function savePreset(input:String):Void
         {
-            File.saveContent((path + 'presets/modifiers/'+input), Json.stringify(_modifiers)); //just an example for now
+            File.saveContent((Main.path + 'presets/modifiers/'+input), Json.stringify(_modifiers)); //just an example for now
         }
 
     public static function loadPreset(input:String):Void
     {
-        var data:String = File.getContent(path + 'presets/modifiers/'+input);
+        var data:String = File.getContent(Main.path + 'presets/modifiers/'+input);
         _modifiers = Json.parse(data);
         
         replaceValues();
@@ -191,9 +189,9 @@ class ModifierVariables
 
     public static function loadCurrent():Void
     {
-        if (FileSystem.exists(path + 'presets/modifiers/current'))
+        if (FileSystem.exists(Main.path + 'presets/modifiers/current'))
         {
-            var data:String = File.getContent(path + 'presets/modifiers/current');
+            var data:String = File.getContent(Main.path + 'presets/modifiers/current');
             _modifiers = Json.parse(data);
         }
 
