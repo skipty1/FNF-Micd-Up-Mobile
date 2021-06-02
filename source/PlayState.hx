@@ -930,7 +930,7 @@ class PlayState extends MusicBeatState
 			case 'void1':
 				gfVersion = 'gfa';
 			case 'void2':
-			    gfVersion = 'gfa2';
+			    gfVersion = 'gfa';
 			case 'tank1':
 			    gfVersion = 'gf-tankman';
 			case 'tank2':
