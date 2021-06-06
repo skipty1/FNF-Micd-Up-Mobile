@@ -204,7 +204,7 @@ class PlayState extends MusicBeatState
 	var tankBop1:FlxSprite;
 	var tankBop2:FlxSprite;
 	var tankBop3:FlxSprite;
-	var tankBop4:FlxSprite;
+	var tankBop4:FlxSprite;//klav coded this not me lol -Zack
 	var tankBop5:FlxSprite;
 	var tankBop6:FlxSprite;
 	// LOLOOOOLOLOLOLOLOLOL /j
