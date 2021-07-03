@@ -1,7 +1,8 @@
 package;
-
+#if sys
 import sys.io.File;
 import sys.FileSystem;
+#end
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -12,6 +13,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import MainVariables._variables;
 import MainVariables;
+import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -29,6 +31,7 @@ class AutoOffsetState extends MusicBeatState
 	var hitBeats:Int = 0;
 	var offsetCalc:Int = 0;
 	var offsetTotal:Int = 0;
+	var _pad:FlxVirtualPad;
 
 	var offsetText:FlxText;
 	var previousText:FlxText;
@@ -57,7 +60,7 @@ class AutoOffsetState extends MusicBeatState
 		FlxG.sound.cache(Paths.sound('intro3' + (easterEgg ? "-pixel" : ""), "shared"));
 		FlxG.sound.cache(Paths.sound('intro2' + (easterEgg ? "-pixel" : ""), "shared"));
 		FlxG.sound.cache(Paths.sound('intro1' + (easterEgg ? "-pixel" : ""), "shared"));
-		FlxG.sound.cache(Paths.sound('introGo' + (easterEgg ? "-pixel" : ""), "shared"));
+		FlxG.sound.cache(Paths.sound('introGo' + (easterEgg ? "-pixel" : ""), "shared"));//WAIT YOU CAN CACHE THAT???? BRUUUU
 
 		// Easter egg check // a
 		easterEgg = false;
@@ -95,7 +98,7 @@ class AutoOffsetState extends MusicBeatState
 		previousText.borderQuality = 1;
 		previousText.alpha = 0;
 
-		descText = new FlxText(320, 540, 640, "Tap any key to the beat of the music!\n", 40);
+		descText = new FlxText(320, 540, 640, "Tap the A button to the beat of the music!\n", 40);
 		descText.scrollFactor.set(0, 0);
 		descText.setFormat(font[1], 40, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.borderSize = 2;
@@ -129,6 +132,9 @@ class AutoOffsetState extends MusicBeatState
 			descText.alpha = 0;
 			FlxTween.tween(descText, {y: descText.y + 10, alpha: 1}, 0.4, {ease: FlxEase.circOut, startDelay: 1.2});
 		});
+		_pad = new FlxVirtualPad(NONE, A_B)
+		_pad.alpha = 0.7;
+		this.add(_pad);
 	}
 
 	override function update(elapsed:Float)
@@ -140,13 +146,13 @@ class AutoOffsetState extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 			// trace(Conductor.songPosition);
 
-			if ((FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.ENTER) && canExit)
+			if ((_pad.buttonB.justPressed || FlxG.keys.justPressed.ENTER) && canExit)
 			{
 				endOfSong = true;
 				endSong();
 			}
 
-			if (FlxG.keys.justPressed.ANY && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
+			if (_pad.buttonA.justPressed && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
 			{
 				hitBeat();
 			}
@@ -232,6 +238,7 @@ class AutoOffsetState extends MusicBeatState
 		_variables.noteOffset = offsetCalc;
 		MainVariables.Save();
 
+        #if sys
 		if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
 		{
 			FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
@@ -242,6 +249,10 @@ class AutoOffsetState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
 			Conductor.changeBPM(102);
 		}
+		#else
+		FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
+		Conductor.changeBPM(102);
+		#end
 
 		if (!ass)
 			FlxG.switchState(new SettingsState());
