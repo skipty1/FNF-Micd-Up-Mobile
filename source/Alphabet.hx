@@ -2,7 +2,6 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.math.FlxMath;
 import flixel.util.FlxTimer;
@@ -75,18 +74,20 @@ class Alphabet extends FlxSpriteGroup
 			// {
 			// }
 
-			if (character == " " || character == "-")
+			if (character == " ")
 			{
 				lastWasSpace = true;
 			}
 
 			#if (haxe >= "4.0.0")
 			var isNumber:Bool = AlphaCharacter.numbers.contains(character);
+			var isSymbol:Bool = AlphaCharacter.symbols.contains(character);
 			#else
 			var isNumber:Bool = AlphaCharacter.numbers.indexOf(character) != -1;
+			var isSymbol:Bool = AlphaCharacter.symbols.contains(character) != -1;
 			#end
 
-			if (AlphaCharacter.alphabet.indexOf(character.toLowerCase()) != -1 || isNumber)
+			if (AlphaCharacter.alphabet.indexOf(character.toLowerCase()) != -1 || isNumber || isSymbol)
 			{
 				if (lastSprite != null)
 				{
@@ -110,11 +111,15 @@ class Alphabet extends FlxSpriteGroup
 					{
 						letter.createNumber(character);
 					}
+					else if (isSymbol)
+					{
+						letter.createSymbol(character);
+					}
 					else
 					{
 						letter.createLetter(character);
 					}
-					
+
 				}
 
 				add(letter);
@@ -349,6 +354,9 @@ class AlphaCharacter extends FlxSprite
 				animation.play(letter);
 			case "!":
 				animation.addByPrefix(letter, 'exclamation point', 24);
+				animation.play(letter);
+			case ",":
+				animation.addByPrefix(letter, 'comma', 24);
 				animation.play(letter);
 		}
 

@@ -2,6 +2,7 @@
 <TextureAtlas imagePath="ass.png">
 	<!-- Created with Adobe Animate version 21.0.6.41649 -->
 	<!-- http://www.adobe.com/products/animate.html -->
+<<<<<<< HEAD
 	<SubTexture name="endless idle0000" x="0" y="0" width="253" height="290"/>
 	<SubTexture name="endless select0000" x="253" y="0" width="253" height="290"/>
 	<SubTexture name="freeplay idle0000" x="506" y="0" width="253" height="290"/>
@@ -16,4 +17,18 @@
 	<SubTexture name="options-mobile select0000" x="831" y="290" width="277" height="293"/>
 	<SubTexture name="week idle0000" x="1108" y="290" width="259" height="290"/>
 	<SubTexture name="week select0000" x="1367" y="290" width="259" height="290"/>
+=======
+	<SubTexture name="endless idle0000" x="2" y="2" width="253" height="290"/>
+	<SubTexture name="endless select0000" x="257" y="2" width="253" height="290"/>
+	<SubTexture name="freeplay idle0000" x="512" y="2" width="253" height="290"/>
+	<SubTexture name="freeplay select0000" x="767" y="2" width="253" height="290"/>
+	<SubTexture name="marathon idle0000" x="1022" y="2" width="255" height="290"/>
+	<SubTexture name="marathon select0000" x="1279" y="2" width="255" height="290"/>
+	<SubTexture name="modifier idle0000" x="1536" y="2" width="263" height="290"/>
+	<SubTexture name="modifier select0000" x="2" y="294" width="263" height="290"/>
+	<SubTexture name="survival idle0000" x="267" y="294" width="258" height="290"/>
+	<SubTexture name="survival select0000" x="527" y="294" width="258" height="290"/>
+	<SubTexture name="week idle0000" x="787" y="294" width="259" height="290"/>
+	<SubTexture name="week select0000" x="1048" y="294" width="259" height="290"/>
+>>>>>>> 93ac1df3fabaed88f288729cf3104b830667bacf
 </TextureAtlas>

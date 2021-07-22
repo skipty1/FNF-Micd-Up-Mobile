@@ -1,27 +1,13 @@
 package;
 
-import sys.FileSystem;
-import flixel.FlxObject;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.system.FlxSound;
-import flixel.util.FlxGradient;
-#if desktop
-import Discord.DiscordClient;
-#end
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.math.FlxMath;
-import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
-import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
-import ModifierVariables._modifiers;
 
 using StringTools;
 
@@ -45,10 +31,15 @@ class Substate_PresetLoad extends MusicBeatSubstate
     {
         super();
 
-        if (coming == "Modifiers")
-            initPresets = Substate_Preset.presets;
-        else if (coming == "Marathon")
-            initPresets = Marathon_Substate.presets;
+        switch (coming)
+	    {
+			case "Modifiers":
+				initPresets = Substate_Preset.presets;
+			case "Marathon":
+				initPresets = Marathon_Substate.presets;
+			case "Survival":
+				initPresets = Survival_Substate.presets;
+		}
 
 		add(blackBarThingie);
         blackBarThingie.scrollFactor.set();
@@ -111,22 +102,30 @@ class Substate_PresetLoad extends MusicBeatSubstate
                     new FlxTimer().start(0.5, function(tmr:FlxTimer)
                         {
                             FlxG.state.closeSubState();
-                            if (coming == "Modifiers")
-                                FlxG.state.openSubState(new Substate_Preset());
-                            else if (coming == "Marathon")
-                                FlxG.state.openSubState(new Marathon_Substate());
+                            switch (coming)
+                            {
+                                case "Modifiers":
+                                    FlxG.state.openSubState(new Substate_Preset());
+                                case "Marathon":
+                                    FlxG.state.openSubState(new Marathon_Substate());
+                                case "Survival":
+                                    FlxG.state.openSubState(new Survival_Substate());
+                            }
                         });
                 }
         
             if (controls.ACCEPT)
             {
-                if (coming == "Modifiers")
+                switch (coming)
                 {
-                    ModifierVariables.loadPreset(initPresets[curSelected]);
-                    MenuModifiers.calculateStart();
+                    case "Modifiers":
+                        ModifierVariables.loadPreset(initPresets[curSelected]);
+                        MenuModifiers.calculateStart();
+                    case "Marathon":
+                        MenuMarathon.loadPreset(initPresets[curSelected]);
+                    case "Survival":
+                        MenuSurvival.loadPreset(initPresets[curSelected]);
                 }
-                else if (coming == "Marathon")
-                    MenuMarathon.loadPreset(initPresets[curSelected]);
 
                 goingBack = true;
                         

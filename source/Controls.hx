@@ -771,9 +771,7 @@ class Controls extends FlxActionSet
 		{
 			name4 = StringTools.replace(name4, key + "\n" + value, key + "," + value);
 		}
-		#if sys
-		File.saveContent('assets/data/defaultControls.txt', name4);
-		#end
+		File.saveContent('assets/data/defaultControls.txt', name4); // it can crash
 		FlxG.save.flush();
 	}
 

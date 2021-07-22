@@ -1,20 +1,16 @@
 package;
 
-#if desktop
+import sys.io.File;
+import sys.FileSystem;
 import Discord.DiscordClient;
-#end
-
 import flixel.util.FlxTimer;
 import flixel.util.FlxGradient;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.effects.FlxFlicker;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
@@ -33,7 +29,7 @@ class PlaySelection extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = ['week', 'freeplay', 'marathon', 'endless', 'modifier', 'options-mobile', 'mods'];//Zack is fucking stupid
+	var optionShit:Array<String> = ['week', 'freeplay', 'marathon', 'endless', 'survival', 'modifier'];
 	var camFollow:FlxObject;
 
 	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('pBG_Main'));
@@ -49,17 +45,18 @@ class PlaySelection extends MusicBeatState
 		transOut = FlxTransitionableState.defaultTransOut;
 
 		if (!FlxG.sound.music.playing)
-		{
-			switch (_variables.music)
-            {
-                case 'classic':
-                    FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume/100);
+			{
+				if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
+				{
+					FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
+					Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
+				}
+				else
+				{
+					FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
 					Conductor.changeBPM(102);
-                case 'funky':
-                    FlxG.sound.playMusic(Paths.music('funkyMenu'), _variables.mvolume/100);
-					Conductor.changeBPM(140);
-            }
-		}
+				}
+			}
 
 		persistentUpdate = persistentDraw = true;
 
@@ -97,7 +94,7 @@ class PlaySelection extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			var menuItem:FlxSprite = new FlxSprite(i * 420, 1280);
+			var menuItem:FlxSprite = new FlxSprite(i * 370, 1280);
 			menuItem.frames = tex;
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " select", 24);
@@ -150,12 +147,12 @@ class PlaySelection extends MusicBeatState
 			{
 				spr.scale.set(FlxMath.lerp(spr.scale.x, 0.5, 0.4/(_variables.fps/60)), FlxMath.lerp(spr.scale.y, 0.5, 0.07/(_variables.fps/60)));
 				spr.y = FlxG.height - spr.height;
-				spr.x = FlxMath.lerp(spr.x, spr.ID * 420 + 240, 0.4/(_variables.fps/60));
+				spr.x = FlxMath.lerp(spr.x, spr.ID * 370 + 240, 0.4/(_variables.fps/60));
 	
 				if (spr.ID == curSelected)
 				{
 					spr.scale.set(FlxMath.lerp(spr.scale.x, 2, 0.4/(_variables.fps/60)), FlxMath.lerp(spr.scale.y, 2, 0.07/(_variables.fps/60)));
-					spr.x = FlxMath.lerp(spr.x, spr.ID * 420, 0.4/(_variables.fps/60));
+					spr.x = FlxMath.lerp(spr.x, spr.ID * 370, 0.4/(_variables.fps/60));
 				}
 	
 				spr.updateHitbox();
@@ -182,9 +179,7 @@ class PlaySelection extends MusicBeatState
 			{
 				FlxG.switchState(new MainMenuState());
 
-				#if desktop
 				DiscordClient.changePresence("Back to the Main Menu.",  null);
-				#end
 
 				FlxTween.tween(FlxG.camera, { zoom: 2}, 0.4, { ease: FlxEase.expoIn});
 				FlxTween.tween(bg, { y: 0-bg.height}, 0.4, { ease: FlxEase.expoIn });
@@ -199,9 +194,7 @@ class PlaySelection extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'), _variables.svolume/100);
 
-				#if desktop
 				DiscordClient.changePresence("Selected: "+optionShit[curSelected].toUpperCase(),  null);
-				#end
 
 				menuItems.forEach(function(spr:FlxSprite)
 				{
@@ -227,36 +220,31 @@ class PlaySelection extends MusicBeatState
 							{
 								case 'week':
 									FlxG.switchState(new MenuWeek());
-									#if desktop
-										DiscordClient.changePresence("Going to select a week.",  null);
-									#end
+									DiscordClient.changePresence("Going to select a week.",  null);
 								case 'freeplay':
 									FlxG.switchState(new MenuFreeplay());
-									#if desktop
-										DiscordClient.changePresence("Am bored, so I freeplay.",  null);
-									#end
+									DiscordClient.changePresence("Am bored, so I freeplay.",  null);
 								case 'modifier':
 									FlxG.switchState(new MenuModifiers());
-									#if desktop
-										DiscordClient.changePresence("Time to spice the game.",  null);
-									#end
+									DiscordClient.changePresence("Time to spice the game.",  null);
 								case 'marathon':
 									FlxG.switchState(new MenuMarathon());
-									#if desktop
-										DiscordClient.changePresence("I wanna make a marathon.",  null);
-									#end
+									DiscordClient.changePresence("I wanna make a marathon.",  null);
+								case 'survival':
+									FlxG.switchState(new MenuSurvival());
+									DiscordClient.changePresence("This feels like Total Drama Island already.",  null);
 								case 'endless':
 									FlxG.switchState(new MenuEndless());
 									#if desktop
 										DiscordClient.changePresence("Endless easy SMM2 moment.",  null);
 									#end
-								case 'options-mobile':
+								/*case 'options-mobile':
 								    FlxG.switchState(new options.OptionsMenu());
 								    trace('sus!');
 							    case 'mods':
 							        //FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
 							        FlxG.switchState(new options.NoMods());
-							        trace('when the imposter is (line 255)');
+							        trace('when the imposter is (line 255)');*?
 							}
 						});
 				});
@@ -296,8 +284,6 @@ class PlaySelection extends MusicBeatState
 			spr.updateHitbox();
 		});
 
-		#if desktop
-			DiscordClient.changePresence("Play Selection: "+optionShit[curSelected].toUpperCase(),  null);
-		#end
+		DiscordClient.changePresence("Play Selection: "+optionShit[curSelected].toUpperCase(),  null);
 	}
 }

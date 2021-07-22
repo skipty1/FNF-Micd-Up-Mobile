@@ -3,25 +3,16 @@ package;
 import haxe.Json;
 import sys.io.File;
 import sys.FileSystem;
-import flixel.FlxObject;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.system.FlxSound;
-import flixel.util.FlxGradient;
-#if desktop
 import Discord.DiscordClient;
-#end
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import lime.utils.Assets;
-import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
 import ui.FlxVirtualPad;
@@ -226,9 +217,7 @@ class Endless_Substate extends MusicBeatSubstate
         
             if (controls.ACCEPT || ACCEPT)
             {
-                #if desktop
-					DiscordClient.changePresence("Selecting chart types.", null);
-				#end
+				DiscordClient.changePresence("Selecting chart types.", null);
 
                 PlayState.gameplayArea = "Endless";
                 PlayState.storyDifficulty = curDifficulty;
@@ -345,7 +334,7 @@ class Endless_Substate extends MusicBeatSubstate
 
         if (!FileSystem.exists(Main.path + 'presets/endless/'+songTitle+'_'+difficulty))
             {
-                File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
+                File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
             }
         else
             {
@@ -356,6 +345,6 @@ class Endless_Substate extends MusicBeatSubstate
 
     public static function saveCurrent(songTitle:String, difficulty:Int)
         {
-            File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless));
+            File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
         }
 }

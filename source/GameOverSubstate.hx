@@ -6,8 +6,6 @@ import flixel.text.FlxText;
 import flixel.math.FlxMath;
 import flixel.FlxG;
 import flixel.FlxObject;
-import flixel.FlxSubState;
-import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import MainVariables._variables;
@@ -64,7 +62,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		FlxG.camera.flash(0xFF0000, 0.4);
 
-		if (PlayState.gameplayArea == "Marathon" || PlayState.gameplayArea == "Endless")
+		if (PlayState.gameplayArea == "Marathon" || PlayState.gameplayArea == "Endless" || PlayState.gameplayArea == "Survival")
 		{
 			var press:FlxText = new FlxText(20, 15, 1200, "GAME OVER!\nGo back to try again.", 32);
 			press.alignment = CENTER;
@@ -88,27 +86,16 @@ class GameOverSubstate extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-//crap 3
-		/*var UP_P:Bool = false;
-		var DOWN_P:Bool = false;
-		var LEFT_P:Bool = false;
-		var RIGHT_P:Bool = false;*/
-		var ACCEPT:Bool = false;
-		var BACK:Bool = false;
-		/*UP_P = _pad.buttonUp.justPressed;
-		DOWN_P = _pad.buttonDown.justPressed;
-		LEFT_P = _pad.buttonLeft.justPressed;
-		RIGHT_P = _pad.buttonRight.justPressed;*/
-		ACCEPT = _pad.buttonA.justPressed;
-		BACK = _pad.buttonB.justPressed;
-		if (controls.ACCEPT || ACCEPT && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless")
+
+		if (controls.ACCEPT || _pad.buttonA.justPressed && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
 		{
 			endBullshit();
 		}
 
 		if (controls.BACK || BACK)
 		{
-				FlxG.sound.music.stop();
+			PlayState.curDeaths = 0;
+			FlxG.sound.music.stop();
 
 			switch (PlayState.gameplayArea)
 			{
@@ -120,6 +107,8 @@ class GameOverSubstate extends MusicBeatSubstate
 					FlxG.switchState(new MenuMarathon());
 				case "Endless":
 					FlxG.switchState(new MenuEndless());
+				case "Survival":
+					FlxG.switchState(new MenuSurvival());
 				case "Charting":
 					FlxG.switchState(new ChartingState());
 			}
