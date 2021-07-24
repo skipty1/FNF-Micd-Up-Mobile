@@ -18,7 +18,7 @@ class BugDisclaimerState extends MusicBeatState
     var _pad:FlxVirtualPad;
 	var sinMod:Float = 0;
 	var txt:FlxText = new FlxText(0, 360, FlxG.width,
-		"You are now in version '1.4' of the port\n"
+		"You are now in version '1.5' of the port\n"
 		+ "The bugs in this version are as the following:\n"
 		+ "AGOTI's background\nIdk what else\n\n"
 		+ "If you found any extra bugs, be sure to go to our github by pressing B\n"
