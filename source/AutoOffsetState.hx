@@ -129,6 +129,10 @@ class AutoOffsetState extends MusicBeatState
 			descText.alpha = 0;
 			FlxTween.tween(descText, {y: descText.y + 10, alpha: 1}, 0.4, {ease: FlxEase.circOut, startDelay: 1.2});
 		});
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 	}
 
 	override function update(elapsed:Float)
