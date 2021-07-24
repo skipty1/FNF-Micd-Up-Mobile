@@ -22,7 +22,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float)
 	{
-		var daStage = PlayState.curStage;
+		var daStage:String = PlayState.curStage;
 		var daBf:String = '';
 		switch (daStage)
 		{
@@ -86,7 +86,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		var daStage2 = PlayState.curStage;
+		var daStage2:String = PlayState.curStage;
 
 		if (controls.ACCEPT && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
 		{
