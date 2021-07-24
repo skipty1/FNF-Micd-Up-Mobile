@@ -1,4 +1,4 @@
-#if desktop
+//#if desktop //no
 package;
 
 #if discord_rpc
@@ -98,4 +98,4 @@ class DiscordClient
 		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 }
-#end
+//#end

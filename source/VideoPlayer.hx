@@ -8,7 +8,7 @@ import Paths;
 #if cpp
 import webm.*;
 import flixel.system.FlxSound;
-import utils.Asset2File;
+import Asset2File;
 #elseif html5
 import openfl.net.NetStream;
 import openfl.media.Video;

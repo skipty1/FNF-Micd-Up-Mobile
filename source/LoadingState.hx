@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxAxes;
 import lime.app.Promise;
 import lime.app.Future;
 import flixel.FlxG;

@@ -130,6 +130,7 @@
 	<haxelib name="random"/> <!--haxelib install random-->
 	<haxelib name="systools" unless="mobile" />
 	<ndll name="systools" haxelib="systools" unless="mobile" />
+	<haxelib name="extension-webm" unless="html5" />
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
 	<!-- <haxelib name="markdown" /> -->

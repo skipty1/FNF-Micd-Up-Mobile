@@ -38,6 +38,7 @@ import Endless_Substate._endless;
 import Survival_GameOptions._survivalVars;
 import seedyrng.Random;
 import hscript.plus.ScriptState;
+import haxe.Json;
 #if mobileC
 import ui.Mobilecontrols;
 #end
@@ -65,7 +66,7 @@ class PlayState extends MusicBeatState
 
 	var died:Bool = false;
 	//var data:AndroidData = new AndroidData();//data part 2 in line 1014
-	var disableKeys:Bool = false;
+	var disabledKeys:Bool = false;
 	
 	public static var storyPlaylist:Array<String> = [];
 	public static var difficultyPlaylist:Array<String> = [];
@@ -256,7 +257,7 @@ class PlayState extends MusicBeatState
 	var mcontrols:Mobilecontrols; 
 	#end
 	var seconds:Float;
-	var survivalCountdown:FlxText
+	var survivalCountdown:FlxText;
 
 	var tankWatchtower:FlxSprite;
 	var tankRolling:FlxSprite;
@@ -5423,7 +5424,7 @@ class PlayState extends MusicBeatState
 
 	function noteCheck(keyP:Bool, note:Note):Void
 	{
-		if (keyP && !disableKeys)
+		if (keyP && !disabledKeys)
 			goodNoteHit(note);
 		else
 		{
@@ -6100,6 +6101,9 @@ class PlayState extends MusicBeatState
 			gf.playAnim('scared');
 		});
 	}
+
+	var SpamViolation:Int;
+
 }
 //picoshoot
 typedef Ps = 
