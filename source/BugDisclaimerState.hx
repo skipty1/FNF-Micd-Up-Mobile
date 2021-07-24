@@ -22,7 +22,7 @@ class BugDisclaimerState extends MusicBeatState
 		+ "The bugs in this version are as the following:\n"
 		+ "I DONT KNOW LOLLLL\n"
 		+ "If you found any extra bugs, be sure to go to our github by pressing B\n"
-		+ "Now with that out of the way, I hope you'll enjoy this FNF mod.\nFunk all the way.\nPress ENTER or A to proceed",
+		+ "\nPress A to proceed\n",
 		32);
 
 	override function create()
