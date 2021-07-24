@@ -84,6 +84,10 @@ class PAGE5settings extends MusicBeatSubstate
 		FlxG.camera.follow(camFollow, null, camLerp);
 
 		DiscordClient.changePresence("Settings page: Miscellaneous", null);
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 	}
 
 	function createResults():Void
