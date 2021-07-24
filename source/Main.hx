@@ -78,8 +78,6 @@ class Main extends Sprite
 		initialState = FirstCheckState;
 		#end
 
-		trace('ajajaj ${Main.path}');
-
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		//#if !mobile

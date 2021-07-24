@@ -5,18 +5,15 @@ import flixel.group.FlxSpriteGroup;
 
 import ui.FlxVirtualPad;
 import ui.Hitbox;
-import ui.PauseButton;
 
 import Config;
 
 class Mobilecontrols extends FlxSpriteGroup
 {
 	public var mode:ControlsGroup = HITBOX;
-	public var isPause:Bool = false;
 
 	public var _hitbox:Hitbox;
 	public var _virtualPad:FlxVirtualPad;
-	public var _pause:PauseButton;
 
 	var config:Config;
 
@@ -42,16 +39,6 @@ class Mobilecontrols extends FlxSpriteGroup
 				_hitbox = new Hitbox();
 				add(_hitbox);
 			case KEYBOARD:
-			case DOUBLE:
-			    initVirtualPad(3);//go to FlxVirtualPad line 101
-		}
-
-		_pause = new PauseButton();
-		if (config.getPause())
-		{
-			isPause = true;
-			_pause.alpha = 0.75;
-			add(_pause);
 		}
 	}
 
@@ -64,13 +51,12 @@ class Mobilecontrols extends FlxSpriteGroup
 			case 2:
 				_virtualPad = new FlxVirtualPad(FULL, NONE);
 				_virtualPad = config.loadcustom(_virtualPad);
-			case 3:
-			    _virtualPad = new FlxVirtualPad(DOUBLE, NONE);
 			default: // 0
 				_virtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
 		}
+		
 		_virtualPad.alpha = 0.75;
-		add(_virtualPad);
+		add(_virtualPad);	
 	}
 
 
@@ -82,7 +68,6 @@ class Mobilecontrols extends FlxSpriteGroup
 			case 2: KEYBOARD;
 			case 3: VIRTUALPAD_CUSTOM;
 			case 4:	HITBOX;
-			case 5: DOUBLE;
 
 			default: VIRTUALPAD_RIGHT;
 
@@ -96,5 +81,4 @@ enum ControlsGroup {
 	KEYBOARD;
 	VIRTUALPAD_CUSTOM;
 	HITBOX;
-	DOUBLE;
 }

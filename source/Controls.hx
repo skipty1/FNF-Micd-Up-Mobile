@@ -1,6 +1,7 @@
 package;
 
 import ui.Hitbox;
+import flixel.ui.FlxButton;
 import ui.FlxVirtualPad;
 import sys.io.File;
 import flixel.FlxG;
