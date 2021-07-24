@@ -108,7 +108,10 @@ class MenuControls extends MusicBeatState
 		//
 		//	// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		// }
-
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 		super.create();
 
 		// openSubState(new OptionsSubState());
