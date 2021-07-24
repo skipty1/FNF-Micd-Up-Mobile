@@ -111,6 +111,10 @@ class GameplayCustomizeState extends MusicBeatState
 
         FlxTween.tween(FlxG.camera, {zoom: 0.9, alpha: 1}, 0.3, {ease: FlxEase.quartOut});
         FlxTween.tween(camHUD, {zoom: 1, alpha: 1}, 0.3, {ease: FlxEase.quartOut});
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
     }
 
     override function update(elapsed:Float) {
