@@ -106,7 +106,7 @@ class MainVariables
 	{
 		var list = Assets.list();
 
-		musicList = list.filter(text -> text.contains('assets/music/menu'));
+		musicList = list.filter(text -> text.contains('assets/music/menu')); //wtf git
 
 		hitList = list.filter(text -> text.contains('assets/shared/sounds/hitsounds'));
 		hitList.unshift('none.ogg');
