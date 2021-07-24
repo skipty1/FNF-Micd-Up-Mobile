@@ -172,6 +172,10 @@ class MenuMarathon extends MusicBeatState
 				Conductor.changeBPM(102);
 			}
 		}
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 
 		super.create();
 
