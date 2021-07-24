@@ -62,7 +62,7 @@ class RankingSubstate extends MusicBeatSubstate
 		combo.antialiasing = true;
 		combo.setGraphicSize(0, 130);
 
-		var press:FlxText = new FlxText(20, 15, 0, "Press ANY to continue.", 32);
+		var press:FlxText = new FlxText(20, 15, 0, "Press A to continue.", 32);
 		press.scrollFactor.set();
 		press.setFormat(Paths.font("vcr.ttf"), 32);
 		press.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
@@ -114,6 +114,10 @@ class RankingSubstate extends MusicBeatSubstate
 		FlxTween.tween(hint, {alpha: 1, y: 645 - hint.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+		//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A);
+        #end
 	}
 
 	override function update(elapsed:Float)
@@ -123,7 +127,7 @@ class RankingSubstate extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ANY || _modifiers.Practice)
+		if (FlxG.keys.justPressed.ANY #if mobileC controls.ACCEPT #end || _modifiers.Practice)
 		{
 			PlayState.ended = false;
 
