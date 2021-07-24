@@ -68,7 +68,7 @@ class FirstTimeState extends MusicBeatState
 			_variables.firstTime = false;
 			leftState = true;
 			MainVariables.Save();
-			FlxG.switchState(new TitleState());
+			FlxG.switchState(new BugDisclaimerState());
 		}
 
 		// if (FlxG.keys.justPressed.ENTER && nextMsg)
