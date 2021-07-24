@@ -84,6 +84,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		var daStage = PlayState.curStage;
 
 		if (controls.ACCEPT && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
 		{
@@ -119,6 +120,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.follow(camFollow, LOCKON, camLerp);
 			camFollow.x = FlxMath.lerp(camFollow.x, bf.getGraphicMidpoint().x, (camLerp * _variables.cameraSpeed)/(_variables.fps/60));
 			camFollow.y = FlxMath.lerp(camFollow.y, bf.getGraphicMidpoint().y, (camLerp * _variables.cameraSpeed)/(_variables.fps/60));
+			if (daStage == 'tankStage' || daStage == 'tankStage2')
+			{
+			    FlxG.sound.play(Paths.sound('jeffGameover-' + FlxG.random.int(1, 25), 'week7'));
+			}
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame >= 16)
