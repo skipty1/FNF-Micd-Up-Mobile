@@ -230,6 +230,10 @@ class MenuWeek extends MusicBeatState
 		{
 			selectable = true;
 		});
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 	}
 
 	var selectable:Bool = false;
