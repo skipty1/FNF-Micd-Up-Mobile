@@ -127,7 +127,7 @@ class RankingSubstate extends MusicBeatSubstate
 
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ANY #if mobileC controls.ACCEPT #end || _modifiers.Practice)
+		if (FlxG.keys.justPressed.ANY #if mobileC || controls.ACCEPT #end || _modifiers.Practice)
 		{
 			PlayState.ended = false;
 
