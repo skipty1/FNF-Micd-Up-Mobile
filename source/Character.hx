@@ -667,6 +667,27 @@ class Character extends FlxSprite
 						else
 							playAnim('danceLeft');
 					}
+				case 'picoSpeaker':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('idle');
+						else
+							playAnim('idle');
+					}
+
+				case 'gf-tankman':
+					if (!animation.curAnim.name.startsWith('hair'))
+					{
+						danced = !danced;
+
+						if (danced)
+							playAnim('danceRight');
+						else
+							playAnim('danceLeft');
+					}
 				case 'spooky':
 					danced = !danced;
 
