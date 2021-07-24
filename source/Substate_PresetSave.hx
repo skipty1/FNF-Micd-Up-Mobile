@@ -122,7 +122,7 @@ class Substate_PresetSave extends MusicBeatSubstate
 				});
 			}
 
-			if (FlxG.keys.justPressed.ENTER && name.text != '')
+			if (controls.ACCEPT && name.text != '')
 			{
 				if (name.text.toLowerCase() == 'fm no.42 pcm no.04 da no.21') //Sonic CD reference???? :flushed:
 				{
