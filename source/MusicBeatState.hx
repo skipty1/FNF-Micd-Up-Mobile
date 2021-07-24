@@ -1,5 +1,6 @@
 package;
 
+import flixel.input.actions.FlxActionInput;
 import flixel.util.FlxColor;
 import openfl.Lib;
 import Conductor.BPMChangeEvent;

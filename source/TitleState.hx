@@ -206,10 +206,10 @@ class TitleState extends MusicBeatState
 
 		DiscordClient.changePresence("In the Title Screen", null);
 		//crap but better
-        #if mobileC
+        /*#if mobileC
         addVirtualPad(LEFT_RIGHT, NONE);
         _virtualpad.alpha = 0.3;
-        #end
+        #end*/
 	}
 
 	function getIntroTextShit():Array<Array<String>>

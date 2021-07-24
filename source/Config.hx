@@ -29,7 +29,7 @@ class Config {
 
 
 	// splash settings
-	public var splash(get, set):Bool;
+	/*public var splash(get, set):Bool;
 	
 	function get_splash():Bool
 		return getsplash();
@@ -45,7 +45,7 @@ class Config {
 		return getcutscenes();
 	
 	function set_cutscenes(cutscenes:Bool):Bool
-		return setcutscenes(cutscenes);
+		return setcutscenes(cutscenes);*/
 
 	// ---- end
 
