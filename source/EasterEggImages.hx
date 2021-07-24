@@ -22,6 +22,10 @@ class EasterEggImages extends MusicBeatState
 
         if (song != '')
             FlxG.sound.play(song);
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
     }
 
     override function update(elapsed:Float)

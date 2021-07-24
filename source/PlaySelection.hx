@@ -115,6 +115,10 @@ class PlaySelection extends MusicBeatState
 		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
+//crap but better
+        #if mobileC
+        addVirtualPad(LEFT_RIGHT, A_B);
+        #end
 
 		super.create();
 

@@ -65,6 +65,10 @@ class Substate_PresetSave extends MusicBeatSubstate
 		{
 			selectable = true;
 		});
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
 	}
 
 	var selectable:Bool = false;
@@ -96,7 +100,7 @@ class Substate_PresetSave extends MusicBeatSubstate
 
 		if (selectable && !goingBack)
 		{
-			if (FlxG.keys.justPressed.ESCAPE)
+			if (controls.BACK)
 			{
 				goingBack = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'), _variables.svolume / 100);
@@ -118,7 +122,7 @@ class Substate_PresetSave extends MusicBeatSubstate
 				});
 			}
 
-			if (FlxG.keys.justPressed.ENTER && name.text != '')
+			if (controls.ACCEPT && name.text != '')
 			{
 				if (name.text.toLowerCase() == 'fm no.42 pcm no.04 da no.21') //Sonic CD reference???? :flushed:
 				{

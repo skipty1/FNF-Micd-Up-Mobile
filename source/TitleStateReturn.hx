@@ -104,6 +104,10 @@ class TitleStateReturn extends MusicBeatState
 			y: -125
 		}, 1.3, {ease: FlxEase.expoInOut, startDelay: 1.3});
 		FlxTween.tween(gfDance, {y: 20}, 2.3, {ease: FlxEase.expoInOut, startDelay: 0.8});
+        #if mobileC
+        addVirtualPad(LEFT_RIGHT, NONE);
+        _virtualpad.alpha = 0.3;
+        #end
 	}
 
 	var logoBl:FlxSprite;
@@ -129,7 +133,7 @@ class TitleStateReturn extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)

@@ -22,6 +22,7 @@ class LoadingState extends MusicBeatState
 
 	var target:FlxState;
 	var stopMusic = false;
+	var loadBar:FlxSprite;
 	var callbacks:MultiCallback;
 
 	var logo:FlxSprite;
@@ -37,6 +38,18 @@ class LoadingState extends MusicBeatState
 
 	override function create()
 	{
+		var bg = new FlxSprite();
+		bg.loadGraphic(Paths.image('funkay'));
+		bg.setGraphicSize(FlxG.width);
+		bg.updateHitbox();
+		bg.antialiasing = true;
+		add(bg);
+		bg.scrollFactor.set();
+		bg.screenCenter();
+
+		loadBar = new FlxSprite(0, FlxG.height - 20).makeGraphic(FlxG.width, 10, -59694);
+		loadBar.screenCenter(FlxAxes.X);
+		add(loadBar);
 		logo = new FlxSprite(120, -30);
 		logo.frames = Paths.getSparrowAtlas('logoBumpin');
 		logo.antialiasing = true;
@@ -47,7 +60,7 @@ class LoadingState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		add(logo);
+		//add(logo);
 
 		initSongsManifest().onComplete(function(lib)
 		{
@@ -119,6 +132,8 @@ class LoadingState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		if (callbacks != null)
+			loadBar.scale.x = callbacks.getFired().length / callbacks.getUnfired().length;
 		#if debug
 		if (FlxG.keys.justPressed.SPACE)
 			trace('fired: ' + callbacks.getFired() + " unfired:" + callbacks.getUnfired());
@@ -159,21 +174,20 @@ class LoadingState extends MusicBeatState
 				FlxG.sound.cache(Paths.voices(no[i]));
 			}
 		}
-		#if NO_PRELOAD_ALL
+
 		var loaded = isSoundLoaded(getSongPath())
 			&& (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath()))
 			&& isLibraryLoaded("shared");
 
 		if (!loaded)
 			return new LoadingState(target, stopMusic);
-		#end
+
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
 		return target;
 	}
 
-	#if NO_PRELOAD_ALL
 	static function isSoundLoaded(path:String):Bool
 	{
 		return Assets.cache.hasSound(path);
@@ -183,7 +197,6 @@ class LoadingState extends MusicBeatState
 	{
 		return Assets.getLibrary(library) != null;
 	}
-	#end
 
 	override function destroy()
 	{

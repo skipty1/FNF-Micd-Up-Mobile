@@ -41,6 +41,10 @@ class OutOfDate extends MusicBeatState
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		txt.screenCenter();
 		add(txt);
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
 	}
 
 	override function update(elapsed:Float)

@@ -141,7 +141,10 @@ class MenuEndless extends MusicBeatState
 				Conductor.changeBPM(102);
 			}
 		}
-
+//crap but better
+        #if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 		super.create();
 	}
 

@@ -205,6 +205,11 @@ class TitleState extends MusicBeatState
 		// credGroup.add(credTextShit);
 
 		DiscordClient.changePresence("In the Title Screen", null);
+		//crap but better
+        #if mobileC
+        addVirtualPad(LEFT_RIGHT, NONE);
+        _virtualpad.alpha = 0.3;
+        #end
 	}
 
 	function getIntroTextShit():Array<Array<String>>
@@ -241,7 +246,7 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)

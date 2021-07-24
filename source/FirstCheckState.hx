@@ -39,7 +39,7 @@ class FirstCheckState extends MusicBeatState
 	{
 		if (InternetConnection.isAvailable() && !isDebug)
 		{
-			var http = new haxe.Http("https://raw.githubusercontent.com/KlavierGayming/FNF-Micd-Up-Mobile/main/versionShit.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/KlavierGayming/FNF-Micd-Up-Mobile/main/versionShit.txt");//what.
 			var returnedData:Array<String> = [];
 
 			http.onData = function(data:String)
@@ -64,7 +64,7 @@ class FirstCheckState extends MusicBeatState
 						case true:
 							FlxG.switchState(new FirstTimeState()); // First time language setting
 						case false:
-							FlxG.switchState(new TitleState()); // First time language setting
+							FlxG.switchState(new BugDisclaimerState()); // First time language setting
 					}
 				}
 			}
@@ -77,7 +77,7 @@ class FirstCheckState extends MusicBeatState
 					case true:
 						FlxG.switchState(new FirstTimeState()); // First time language setting
 					case false:
-						FlxG.switchState(new TitleState()); // First time language setting
+						FlxG.switchState(new BugDisclaimerState()); // First time language setting
 				}
 			}
 
@@ -92,7 +92,7 @@ class FirstCheckState extends MusicBeatState
 				case true:
 					FlxG.switchState(new FirstTimeState()); // First time language setting
 				case false:
-					FlxG.switchState(new TitleState()); // First time language setting
+					FlxG.switchState(new BugDisclaimerState()); // First time language setting
 			}
 		}
 	}

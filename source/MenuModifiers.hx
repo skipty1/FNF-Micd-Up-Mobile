@@ -178,6 +178,10 @@ class MenuModifiers extends MusicBeatState
 		#if discord_rpc
 		DiscordClient.changePresence("Settings up modifiers", null);
 		#end
+		//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 	}
 
 	var selectable:Bool = false;

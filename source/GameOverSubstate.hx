@@ -22,7 +22,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float)
 	{
-		var daStage = PlayState.curStage;
+		var daStage:String = PlayState.curStage;
 		var daBf:String = '';
 		switch (daStage)
 		{
@@ -32,6 +32,8 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'schoolEvil':
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
+			case 'tankStage2':
+				daBf = 'bf-holding-gf-dead'
 			default:
 				daBf = 'bf';
 		}
@@ -75,11 +77,16 @@ class GameOverSubstate extends MusicBeatSubstate
 			press.alpha = 0;
 			FlxTween.tween(press, {alpha: 1, y: 550 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		}
+//crap but better
+        #if mobileC
+        addVirtualPad(NONE, A_B);
+        #end
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		var daStage2:String = PlayState.curStage;
 
 		if (controls.ACCEPT && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
 		{
@@ -115,6 +122,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.follow(camFollow, LOCKON, camLerp);
 			camFollow.x = FlxMath.lerp(camFollow.x, bf.getGraphicMidpoint().x, (camLerp * _variables.cameraSpeed)/(_variables.fps/60));
 			camFollow.y = FlxMath.lerp(camFollow.y, bf.getGraphicMidpoint().y, (camLerp * _variables.cameraSpeed)/(_variables.fps/60));
+			if (daStage2 == 'tankStage' || daStage2 == 'tankStage2')
+			{
+			    FlxG.sound.play(Paths.sound('jeffGameover-' + FlxG.random.int(1, 25), 'week7'));
+			}
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame >= 16)

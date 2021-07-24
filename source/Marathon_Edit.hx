@@ -41,6 +41,10 @@ class Marathon_Edit extends MusicBeatSubstate
             {
                 selectable = true;
             });
+//crap but better
+        #if mobileC
+        addVirtualPad(UP_DOWN, A_B);
+        #end
     }
 
     var selectable:Bool = false;

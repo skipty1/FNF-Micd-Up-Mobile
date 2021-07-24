@@ -160,6 +160,10 @@ class MenuSurvival extends MusicBeatState
 		super.create();
 
 		DiscordClient.changePresence("Choosing my survival adventure.", null);
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
     }
 
 	var score = Std.int(FlxG.save.data.survivalScore);

@@ -30,7 +30,8 @@ class MenuWeek extends MusicBeatState
 		['Pico', 'Philly Nice', "Blammed"],
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter Horrorland'],
-		['Senpai', 'Roses', 'Thorns']
+		['Senpai', 'Roses', 'Thorns'],
+		['Ugh', 'Guns', 'Roses']
 	];
 
 	var curWeekData:Array<Dynamic> = [];
@@ -39,7 +40,7 @@ class MenuWeek extends MusicBeatState
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
-	var weekCharacters:Array<String> = ["gf", "dad", "spooky", "pico", "mom", "parents-christmas", "senpai"];
+	var weekCharacters:Array<String> = ["gf", "dad", "spooky", "pico", "mom", "parents-christmas", "senpai", "tankman"];
 
 	var weekNames:Array<String> = [
 		"How to FUNK",
@@ -48,7 +49,8 @@ class MenuWeek extends MusicBeatState
 		"PICO",
 		"MOMMY MUST MURDER",
 		"RED SNOW",
-		"hating simulator ft. moawling"
+		"hating simulator ft. moawling",
+		"TANKMAN"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -228,6 +230,10 @@ class MenuWeek extends MusicBeatState
 		{
 			selectable = true;
 		});
+//crap but better
+        #if mobileC
+        addVirtualPad(FULL, A_B);
+        #end
 	}
 
 	var selectable:Bool = false;
