@@ -205,6 +205,11 @@ class TitleState extends MusicBeatState
 		// credGroup.add(credTextShit);
 
 		DiscordClient.changePresence("In the Title Screen", null);
+		//crap but better
+        #if mobileC
+        addVirtualPad(LEFT_RIGHT, NONE);
+        _virtualpad.alpha = 0.3;
+        #end
 	}
 
 	function getIntroTextShit():Array<Array<String>>
