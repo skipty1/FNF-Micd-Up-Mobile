@@ -131,7 +131,7 @@ class AutoOffsetState extends MusicBeatState
 		});
 //crap but better
         #if mobileC
-        addVirtualPad(FULL, A_B);
+        addVirtualPad(NONE, A_B);
         #end
 	}
 
@@ -144,13 +144,13 @@ class AutoOffsetState extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 			// trace(Conductor.songPosition);
 
-			if ((FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.ENTER) && canExit)
+			if (controls.BACK && canExit)
 			{
 				endOfSong = true;
 				endSong();
 			}
 
-			if (FlxG.keys.justPressed.ANY && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
+			if (controls.ACCEPT && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
 			{
 				hitBeat();
 			}
