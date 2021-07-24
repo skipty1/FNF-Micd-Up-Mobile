@@ -1,65 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Options_Buttons.png">
-	<!-- Created with Adobe Animate version 20.5.1.31044 -->
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-<<<<<<< HEAD
-	<SubTexture name="accuType idle0000" x="0" y="1179" width="383" height="211"/>
-	<SubTexture name="accuType select0000" x="1548" y="584" width="512" height="185"/>
-	<SubTexture name="accuracy idle0000" x="3084" y="772" width="383" height="217"/>
-	<SubTexture name="accuracy select0000" x="2582" y="0" width="511" height="199"/>
-	<SubTexture name="animation idle0000" x="2582" y="199" width="383" height="192"/>
-	<SubTexture name="animation select0000" x="512" y="400" width="512" height="174"/>
-	<SubTexture name="brightness idle0000" x="512" y="746" width="384" height="219"/>
-	<SubTexture name="brightness select0000" x="524" y="0" width="515" height="205"/>
-	<SubTexture name="cameraSpeed idle0000" x="1536" y="1186" width="383" height="188"/>
-	<SubTexture name="cameraSpeed select0000" x="0" y="576" width="512" height="171"/>
-	<SubTexture name="cameraZoom idle0000" x="383" y="1182" width="383" height="188"/>
-	<SubTexture name="cameraZoom select0000" x="0" y="404" width="512" height="172"/>
-	<SubTexture name="chart idle0000" x="2046" y="977" width="383" height="206"/>
-	<SubTexture name="chart select0000" x="1548" y="396" width="512" height="188"/>
-	<SubTexture name="combo idle0000" x="3467" y="890" width="383" height="217"/>
-	<SubTexture name="combo select0000" x="3093" y="0" width="515" height="197"/>
-	<SubTexture name="combo+ idle0000" x="766" y="975" width="387" height="207"/>
-	<SubTexture name="combo+ select0000" x="2060" y="396" width="514" height="187"/>
-	<SubTexture name="config idle0000" x="2046" y="1183" width="383" height="200"/>
-	<SubTexture name="config select0000" x="2572" y="584" width="512" height="182"/>
-	<SubTexture name="controls idle0000" x="1149" y="1189" width="383" height="157"/>
-	<SubTexture name="controls select0000" x="1024" y="587" width="512" height="171"/>
-	<SubTexture name="cutscene idle0000" x="3612" y="0" width="402" height="220"/>
-	<SubTexture name="cutscene select0000" x="1552" y="0" width="518" height="200"/>
-	<SubTexture name="filter idle0000" x="0" y="747" width="383" height="219"/>
-	<SubTexture name="filter select0000" x="3093" y="197" width="512" height="198"/>
-	<SubTexture name="fps idle0000" x="1663" y="769" width="383" height="211"/>
-	<SubTexture name="fps select0000" x="0" y="211" width="512" height="193"/>
-	<SubTexture name="fpsCounter idle0000" x="3612" y="220" width="389" height="226"/>
-	<SubTexture name="fpsCounter select0000" x="0" y="0" width="524" height="211"/>
-	<SubTexture name="fullscreen idle0000" x="1153" y="985" width="383" height="204"/>
-	<SubTexture name="fullscreen select0000" x="1036" y="399" width="512" height="188"/>
-	<SubTexture name="gameplay idle0000" x="2046" y="770" width="385" height="207"/>
-	<SubTexture name="gameplay select0000" x="2582" y="395" width="514" height="189"/>
-	<SubTexture name="gamma idle0000" x="896" y="758" width="383" height="217"/>
-	<SubTexture name="gamma select0000" x="524" y="205" width="512" height="195"/>
-	<SubTexture name="iconZoom idle0000" x="766" y="1182" width="383" height="188"/>
-	<SubTexture name="iconZoom select0000" x="512" y="574" width="512" height="172"/>
-	<SubTexture name="lateD idle0000" x="2431" y="948" width="385" height="205"/>
-	<SubTexture name="lateD select0000" x="3096" y="395" width="516" height="188"/>
-	<SubTexture name="memory idle0000" x="3612" y="446" width="391" height="222"/>
-	<SubTexture name="memory select0000" x="2070" y="199" width="512" height="197"/>
-	<SubTexture name="misses idle0000" x="383" y="965" width="383" height="217"/>
-	<SubTexture name="misses select0000" x="2070" y="0" width="512" height="199"/>
-	<SubTexture name="music idle0000" x="2429" y="1153" width="385" height="199"/>
-	<SubTexture name="music select0000" x="2572" y="766" width="512" height="182"/>
-	<SubTexture name="muteMiss idle0000" x="3608" y="668" width="388" height="222"/>
-	<SubTexture name="muteMiss select0000" x="1039" y="0" width="513" height="205"/>
-	<SubTexture name="mvolume idle0000" x="0" y="966" width="383" height="213"/>
-	<SubTexture name="mvolume select0000" x="1036" y="205" width="512" height="194"/>
-	<SubTexture name="nps idle0000" x="1663" y="980" width="383" height="206"/>
-	<SubTexture name="nps select0000" x="3096" y="583" width="512" height="189"/>
-	<SubTexture name="offset idle0000" x="1279" y="769" width="384" height="216"/>
-	<SubTexture name="offset select0000" x="1552" y="200" width="514" height="196"/>
-	<SubTexture name="page idle0000" x="2816" y="989" width="383" height="204"/>
-	<SubTexture name="page select0000" x="2060" y="583" width="512" height="187"/>
-=======
 	<SubTexture name="5k idle0000" x="2" y="2" width="383" height="189"/>
 	<SubTexture name="5k select0000" x="387" y="2" width="512" height="171"/>
 	<SubTexture name="accuType idle0000" x="901" y="2" width="383" height="211"/>
@@ -202,5 +144,4 @@
 	<SubTexture name="vvolume select0000" x="906" y="3808" width="512" height="194"/>
 	<SubTexture name="watermark idle0000" x="1420" y="3808" width="383" height="195"/>
 	<SubTexture name="watermark select0000" x="1805" y="3808" width="512" height="178"/>
->>>>>>> 93ac1df3fabaed88f288729cf3104b830667bacf
 </TextureAtlas>

@@ -15,7 +15,6 @@ import flixel.util.FlxColor;
 import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
-import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -218,11 +217,6 @@ class MenuFreeplay extends MusicBeatState
 			// scoreText.textField.htmlText = md;
 			trace(md);
 		 */
-		 //crap but better
-
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
 
 		super.create();
 

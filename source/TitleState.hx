@@ -21,10 +21,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-#if newgrounds
-import io.newgrounds.NG;
-#end
-import lime.app.Application;
 import openfl.Assets;
 import MainVariables._variables;
 import seedyrng.Xorshift64Plus;
@@ -59,10 +55,8 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		#if android
-		FlxG.android.preventDefaultKeys = [BACK];
-		#end
-		
+		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'score', "deeznutsgottem");
+		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'seed', Bitchom.int(0, 999999).string());
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
@@ -247,7 +241,7 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		//#if mobile
+		#if mobile
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
@@ -255,7 +249,7 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			}
 		}
-		//#end testing to see if the block is causing the problem for newer android devices
+		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
@@ -482,6 +476,7 @@ class TitleState extends MusicBeatState
 
 	public static function restart()
 	{
+		#if windows
 		var os = Sys.systemName();
 		var args = "Test.hx";
 		var app = "";
@@ -506,5 +501,6 @@ class TitleState extends MusicBeatState
 		}
 		else
 			throw "Failed to restart bich";
+		#end
 	}
 }

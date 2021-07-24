@@ -1,5 +1,7 @@
 package;
 
+import lime.utils.AssetType;
+import openfl.utils.Assets;
 import lime.app.Application;
 import openfl.display.BlendMode;
 import haxe.Json;
@@ -102,12 +104,14 @@ class MainVariables
 
 	public static function Load():Void
 	{
-		musicList = FileSystem.readDirectory(Main.path + 'assets/music/menu');
+		var list = Assets.list();
 
-		hitList = FileSystem.readDirectory(Main.path + 'assets/shared/sounds/hitsounds');
+		musicList = list.filter(text -> text.contains('assets/music/menu'));
+
+		hitList = list.filter(text -> text.contains('assets/shared/sounds/hitsounds'));
 		hitList.unshift('none.ogg');
 
-		iconList = FileSystem.readDirectory(Main.path + 'assets/shared/images/icons');
+		iconList = list.filter(text -> text.contains('assets/shared/images/icons'));
 		iconList.unshift('template.png');
 
 		for (i in 0...musicList.length)

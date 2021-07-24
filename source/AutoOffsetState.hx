@@ -1,8 +1,7 @@
 package;
-#if sys
+
 import sys.io.File;
 import sys.FileSystem;
-#end
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -13,7 +12,6 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import MainVariables._variables;
 import MainVariables;
-import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -31,7 +29,6 @@ class AutoOffsetState extends MusicBeatState
 	var hitBeats:Int = 0;
 	var offsetCalc:Int = 0;
 	var offsetTotal:Int = 0;
-	var _pad:FlxVirtualPad;
 
 	var offsetText:FlxText;
 	var previousText:FlxText;
@@ -132,9 +129,6 @@ class AutoOffsetState extends MusicBeatState
 			descText.alpha = 0;
 			FlxTween.tween(descText, {y: descText.y + 10, alpha: 1}, 0.4, {ease: FlxEase.circOut, startDelay: 1.2});
 		});
-		_pad = new FlxVirtualPad(NONE, A_B)
-		_pad.alpha = 0.7;
-		this.add(_pad);
 	}
 
 	override function update(elapsed:Float)
@@ -146,13 +140,13 @@ class AutoOffsetState extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 			// trace(Conductor.songPosition);
 
-			if ((_pad.buttonB.justPressed || FlxG.keys.justPressed.ENTER) && canExit)
+			if ((FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.ENTER) && canExit)
 			{
 				endOfSong = true;
 				endSong();
 			}
 
-			if (_pad.buttonA.justPressed && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
+			if (FlxG.keys.justPressed.ANY && (Conductor.songPosition >= 4500 && Conductor.songPosition <= 43500) && !(ending || endOfSong))
 			{
 				hitBeat();
 			}

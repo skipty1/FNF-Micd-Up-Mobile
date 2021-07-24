@@ -13,11 +13,6 @@ import flixel.addons.display.FlxBackdrop;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxColor;
-#if newgrounds
-import io.newgrounds.NG;
-#end
-import lime.app.Application;
 import MainVariables._variables;
 import flixel.math.FlxMath;
 
@@ -120,10 +115,6 @@ class PlaySelection extends MusicBeatState
 		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
-//crap but better
-        #if mobileC
-        addVirtualPad(LEFT_RIGHT, A_B);
-        #end
 
 		super.create();
 
@@ -235,16 +226,7 @@ class PlaySelection extends MusicBeatState
 									DiscordClient.changePresence("This feels like Total Drama Island already.",  null);
 								case 'endless':
 									FlxG.switchState(new MenuEndless());
-									#if desktop
-										DiscordClient.changePresence("Endless easy SMM2 moment.",  null);
-									#end
-								/*case 'options-mobile':
-								    FlxG.switchState(new options.OptionsMenu());
-								    trace('sus!');
-							    case 'mods':
-							        //FlxG.openURL('https://github.com/KlavierGayming/FNF-Micd-Up-Mobile/tree/mods-menu');
-							        FlxG.switchState(new options.NoMods());
-							        trace('when the imposter is (line 255)');*?
+									DiscordClient.changePresence("Endless easy SMM2 moment.",  null);
 							}
 						});
 				});

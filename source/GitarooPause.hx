@@ -2,14 +2,11 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
-import ui.FlxVirtualPad;
 
 class GitarooPause extends MusicBeatState
 {
 	var replayButton:FlxSprite;
 	var cancelButton:FlxSprite;
-	var _pad:FlxVirtualPad;
 
 	var replaySelect:Bool = false;
 
@@ -48,33 +45,16 @@ class GitarooPause extends MusicBeatState
 		add(cancelButton);
 
 		changeThing();
-// crap
-		_pad = new FlxVirtualPad(LEFT_RIGHT, A);
-		_pad.alpha = 0.65;
-		this.add(_pad);
 
 		super.create();
 	}
 
 	override function update(elapsed:Float)
 	{
-	    //crap 3
-		/*var UP_P:Bool = false;
-		var DOWN_P:Bool = false;*/
-		var LEFT_P:Bool = false;
-		var RIGHT_P:Bool = false;
-		var ACCEPT:Bool = false;
-		/*var BACK:Bool = false;
-		UP_P = _pad.buttonUp.justPressed;
-		DOWN_P = _pad.buttonDown.justPressed;*/
-		LEFT_P = _pad.buttonLeft.justPressed;
-		RIGHT_P = _pad.buttonRight.justPressed;
-		ACCEPT = _pad.buttonA.justPressed;
-		//BACK = _pad.buttonB.justPressed;
-		if (controls.LEFT_P || controls.RIGHT_P || LEFT_P || RIGHT_P)
+		if (controls.LEFT_P || controls.RIGHT_P)
 			changeThing();
 
-		if (controls.ACCEPT || ACCEPT)
+		if (controls.ACCEPT)
 		{
 			if (replaySelect)
 			{

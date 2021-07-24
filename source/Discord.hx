@@ -1,7 +1,9 @@
 package;
 
+#if discord_rpc
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
+#end
 
 using StringTools;
 
@@ -9,6 +11,7 @@ class DiscordClient
 {
 	public function new()
 	{
+		#if discord_rpc
 		trace("Discord Client starting...");
 		DiscordRpc.start({
 			clientID: "822967001903005716",
@@ -26,16 +29,19 @@ class DiscordClient
 		}
 
 		DiscordRpc.shutdown();
+		#end
 	}
 
 	static function onReady()
 	{
+		#if discord_rpc
 		DiscordRpc.presence({
 			details: "Booting up",
 			state: null,
 			largeImageKey: 'iconpresence',
 			largeImageText: "FNF: Mic'd Up"
 		});
+		#end
 	}
 
 	static function onError(_code:Int, _message:String)
@@ -50,20 +56,25 @@ class DiscordClient
 
 	public static function initialize()
 	{
+		#if discord_rpc
 		var DiscordDaemon = sys.thread.Thread.create(() ->
 		{
 			new DiscordClient();
 		});
 		trace("Discord Client initialized");
+		#end
 	}
 
 	public static function shutdown()
 		{
+			#if discord_rpc
 			DiscordRpc.shutdown();
+			#end
 		}
 
 	public static function changePresence(details:String, state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)
 	{
+		#if discord_rpc
 		var startTimestamp:Float = if(hasStartTimestamp) Date.now().getTime() else 0;
 
 		if (endTimestamp > 0)
@@ -81,6 +92,7 @@ class DiscordClient
 			startTimestamp : Std.int(startTimestamp / 1000),
             endTimestamp : Std.int(endTimestamp / 1000)
 		});
+		#end
 
 		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}

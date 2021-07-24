@@ -18,16 +18,16 @@ class Main extends Sprite
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var initialState:Class<FlxState> = FirstCheckState; // The FlxState the game starts with.
 	var zoom:Float = 1; // If -1, zoom is automatically calculated to fit the window dimensions.
-	var framerate:Int = 60; // How many frames per second the game should run at.
+	var framerate:Int = 480; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
-
-	public static var path:String = lime.system.System.applicationStorageDirectory;
 
 	public var lastY:Float = 0; // the Y that the game window starts in
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
+
+	public static var path:String = lime.system.System.applicationStorageDirectory;
 
 	public static function main():Void
 	{
@@ -78,9 +78,7 @@ class Main extends Sprite
 		initialState = FirstCheckState;
 		#end
 
-		gameWidth = 1280;
-		gameHeight = 720;
-		zoom = 1; // im angry //confused oonga boonga
+		trace('ajajaj ${Main.path}');
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 

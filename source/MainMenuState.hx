@@ -15,13 +15,9 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-#if newgrounds
-import io.newgrounds.NG;
-#end
 import lime.app.Application;
 import MainVariables._variables;
 import flixel.math.FlxMath;
-import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -97,7 +93,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var tex = Paths.getSparrowAtlas('FNF_main_menu_assets');
-		//var texm = Paths.getSparrowAtlas('menu_asset.png');
 
 		for (i in 0...optionShit.length)
 		{
@@ -131,15 +126,6 @@ class MainMenuState extends MusicBeatState
 		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
-// crap
-/*		_pad = new FlxVirtualPad(UP_DOWN, A_B);
-		_pad.alpha = 0.65;
-		this.add(_pad);*/
-
-		#if mobileC
-		addVirtualPad(UP_DOWN, A_B);
-		#end
-
 
 		super.create();
 

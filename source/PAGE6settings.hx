@@ -86,13 +86,7 @@ class PAGE6settings extends MusicBeatSubstate
 
         FlxG.camera.follow(camFollow, null, camLerp);
 
-        #if desktop
-			DiscordClient.changePresence("Settings page: Clear", null);
-		#end
-
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
+		DiscordClient.changePresence("Settings page: Clear", null);
     }
 
         function createResults():Void

@@ -173,11 +173,6 @@ class MenuMarathon extends MusicBeatState
 			}
 		}
 
-		//crap but better
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
-
 		super.create();
 
 		DiscordClient.changePresence("Selecting anything for a marathon.", null);
@@ -330,21 +325,21 @@ class MenuMarathon extends MusicBeatState
 
 	function loadCurrent()
 	{
-		if (!FileSystem.isDirectory(Main.path + 'presets/marathon'))
-			FileSystem.createDirectory(Main.path + 'presets/marathon');
+		if (!FileSystem.isDirectory('presets/marathon'))
+			FileSystem.createDirectory('presets/marathon');
 
-		if (!FileSystem.exists(Main.path + 'presets/marathon/current'))
+		if (!FileSystem.exists('presets/marathon/current'))
 		{
 			_marathon = {
 				songDifficulties: [],
 				songNames: []
 			}
 
-			File.saveContent((Main.path + 'presets/marathon/current'), Json.stringify(_marathon, null, '    '));
+			File.saveContent(('presets/marathon/current'), Json.stringify(_marathon, null, '    '));
 		}
 		else
 		{
-			var data:String = File.getContent(Main.path + 'presets/marathon/current');
+			var data:String = File.getContent('presets/marathon/current');
 			_marathon = Json.parse(data);
 			PlayState.difficultyPlaylist = _marathon.songDifficulties;
 			PlayState.storyPlaylist = _marathon.songNames;
@@ -357,12 +352,12 @@ class MenuMarathon extends MusicBeatState
 			songDifficulties: PlayState.difficultyPlaylist,
 			songNames: PlayState.storyPlaylist
 		}
-		File.saveContent((Main.path + 'presets/marathon/current'), Json.stringify(_marathon, null, '    '));
+		File.saveContent(('presets/marathon/current'), Json.stringify(_marathon, null, '    '));
 	}
 
 	public static function loadPreset(input:String):Void
 	{
-		var data:String = File.getContent(Main.path + 'presets/marathon/' + input);
+		var data:String = File.getContent('presets/marathon/' + input);
 		_marathon = Json.parse(data);
 
 		PlayState.difficultyPlaylist = _marathon.songDifficulties;
@@ -377,7 +372,7 @@ class MenuMarathon extends MusicBeatState
 			songDifficulties: PlayState.difficultyPlaylist,
 			songNames: PlayState.storyPlaylist
 		}
-		File.saveContent((Main.path + 'presets/marathon/' + input), Json.stringify(_marathon, null, '    ')); // just an example for now
+		File.saveContent(('presets/marathon/' + input), Json.stringify(_marathon, null, '    ')); // just an example for now
 	}
 }
 

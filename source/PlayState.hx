@@ -37,9 +37,6 @@ import Endless_Substate._endless;
 import Survival_GameOptions._survivalVars;
 import seedyrng.Random;
 import hscript.plus.ScriptState;
-#if mobileC
-import ui.Mobilecontrols;
-#end
 
 using StringTools;
 using Std;
@@ -219,18 +216,14 @@ class PlayState extends MusicBeatState
 	var beginCutscene:Bool = false;
 
 	// Discord RPC variables
-	#if desktop
 	var storyDifficultyText:String = "";
 	var iconRPC:String = "";
 	var songLength:Float = 0;
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
-	#end//googling if ya can do custom presence in mobile lul -Z
 
 	var dialogueSuffix:String = "";
-	#if mobileC
-	var mcontrols:Mobilecontrols; 
-	#end
+
 	public static var cameraX:Float;
 	public static var cameraY:Float;
 
@@ -1345,29 +1338,7 @@ class PlayState extends MusicBeatState
 		freezeIndicator.cameras = [camPAUSE];
 		LightsOutBG.cameras = [camPAUSE];
 		BlindingBG.cameras = [camPAUSE];
-		#if mobileC
-			mcontrols = new Mobilecontrols();
-			switch (mcontrols.mode)
-			{
-				case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
-					controls.setVirtualPad(mcontrols._virtualPad, FULL, NONE);
-				case HITBOX:
-					controls.setHitBox(mcontrols._hitbox);
-				default:
-			}
-			trackedinputs = controls.trackedinputs;
-			controls.trackedinputs = [];
 
-			var camcontrol = new FlxCamera();
-			/*FlxG.cameras.add(camcontrol);
-			camcontrol.bgColor.alpha = 0;*/
-			mcontrols.cameras = [camHUD];
-
-			//mcontrols.visible = false;
-			mcontrols.alpha = 0;
-
-			add(mcontrols);
-		#end
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1455,7 +1426,7 @@ class PlayState extends MusicBeatState
 
 		if (_modifiers.HitZonesSwitch)
 		{
-			Conductor.safeFrames = Std.int(13 + _modifiers.HitZones); // old num is 23
+			Conductor.safeFrames = Std.int(13 + _modifiers.HitZones);
 			Conductor.safeZoneOffset = (Conductor.safeFrames / 60) * 1000;
 			Conductor.timeScale = Conductor.safeZoneOffset / 166;
 		}
@@ -1604,20 +1575,6 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		beginCutscene = false;
 
-		#if mobileC
-		//mcontrols.visible = true;
-		new FlxTimer().start(0.1, function(tmr:FlxTimer)
-		{
-		    mcontrols.alpha += 0.2;
-		    if (mcontrols.alpha != 1){
-		        tmr.reset(0.1);
-		    }
-		    else{
-		        trace('aweseom.');
-		    }
-		});
-		#end
-		
 		if (gameplayArea != "Endless" || (gameplayArea == "Endless" && loops == 0))
 		{
 			if (_variables.fiveK)
@@ -3835,7 +3792,9 @@ class PlayState extends MusicBeatState
 
 					if (SONG.validScore && !cheated && !_variables.botplay)
 					{
+						#if newgrounds
 						NGio.unlockMedal(60961);
+						#end
 						Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 					}
 
@@ -5468,17 +5427,6 @@ class PlayState extends MusicBeatState
 					}
 			}
 		}
-	}
-
-	public function loadScript()
-	{
-		modState.executeString(File.getContent('assets/data/' + SONG.song.toLowerCase() + '/scripts/chart.hx'));
-	}
-
-	public function loadStartScript()
-	{
-		modState.executeString(File.getContent('assets/data/' + SONG.song.toLowerCase() + '/scripts/start.hx'));
-	}
 
 		if (isHalloween
 			&& FlxG.random.bool(10)
@@ -5486,6 +5434,7 @@ class PlayState extends MusicBeatState
 			&& _variables.distractions
 			&& !_variables.chromakey)
 		{
+			lightningStrikeShit();
 		}
 	}
 

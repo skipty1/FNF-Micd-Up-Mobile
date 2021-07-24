@@ -130,11 +130,6 @@ class Substate_PresetSaveOK extends MusicBeatSubstate
 		{
 			selectable = true;
 		});
-
-		//crap but better
-        #if mobileC
-        addVirtualPad(NONE, A_B);
-        #end
 	}
 
 	var selectable:Bool = false;

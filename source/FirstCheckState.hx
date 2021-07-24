@@ -39,7 +39,7 @@ class FirstCheckState extends MusicBeatState
 	{
 		if (InternetConnection.isAvailable() && !isDebug)
 		{
-			var http = new haxe.Http("https://raw.githubusercontent.com/Verwex/Funkin-Mic-d-Up-SC/main/versionShit.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/KlavierGayming/FNF-Micd-Up-Mobile/main/versionShit.txt");
 			var returnedData:Array<String> = [];
 
 			http.onData = function(data:String)

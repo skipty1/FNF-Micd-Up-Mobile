@@ -115,41 +115,6 @@ class Character extends FlxSprite
 				loadOffsetFile("dad");
 
 				playAnim('idle');
-
-			case 'agoti':
-				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('agotee/AGOTI');
-				frames = tex;
-				animation.addByPrefix('idle', 'Agoti_Idle', 24);
-				animation.addByPrefix('singUP', 'Agoti_Up', 24);
-				animation.addByPrefix('singRIGHT', 'Agoti_Right', 24);
-				animation.addByPrefix('singDOWN', 'Agoti_Down', 24);
-				animation.addByPrefix('singLEFT', 'Agoti_Left', 24);
-
-				addOffset("idle", -10, 60);
-				addOffset("singUP", -10, 120);
-				addOffset("singRIGHT", -10, 70);
-				addOffset("singLEFT", 180, 90);
-				addOffset("singDOWN", -10, -65);
-
-				playAnim('idle');
-			case 'agoti-crazy':
-				// DAD ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('agotee/Alt_Agoti_Sprites_B');
-				frames = tex;
-				animation.addByPrefix('idle', 'Angry_Agoti_Idle', 24);
-				animation.addByPrefix('singUP', 'Angry_Agoti_Up', 24);
-				animation.addByPrefix('singRIGHT', 'Angry_Agoti_Right', 24);
-				animation.addByPrefix('singDOWN', 'Angry_Agoti_Down', 24);
-				animation.addByPrefix('singLEFT', 'Angry_Agoti_Left', 24);
-
-				addOffset("idle", -10, 60);
-				addOffset("singUP", -10, 120);
-				addOffset("singRIGHT", -10, 70);
-				addOffset("singLEFT", 180, 90);
-				addOffset("singDOWN", -10, -65);
-
-				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets', 'shared');
 				frames = tex;

@@ -5,18 +5,12 @@ import openfl.Lib;
 import Conductor.BPMChangeEvent;
 import flixel.addons.ui.FlxUIState;
 import MainVariables._variables;
-import flixel.ui.FlxVirtualPad;//for testin
-#if mobileC
-import ui.FlxVirtualPad;
-import flixel.input.actions.FlxActionInput;
-#end
 
 
 class MusicBeatState extends FlxUIState
 {
 	private var lastBeat:Float = 0;
 	private var lastStep:Float = 0;
-	public static var unavailable:Bool = false; //FOR MODS PATCH SHIT LATER
 
 	private var curStep:Int = 0;
 	private var curBeat:Int = 0;
@@ -24,38 +18,6 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
-
-	#if mobileC
-	var _virtualpad:FlxVirtualPad;
-
-	var trackedinputs:Array<FlxActionInput> = [];
-
-	// adding virtualpad to state
-	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
-		_virtualpad = new FlxVirtualPad(DPad, Action);
-		_virtualpad.alpha = 0.75;
-		add(_virtualpad);
-		controls.setVirtualPad(_virtualpad, DPad, Action);
-		trackedinputs = controls.trackedinputs;
-		controls.trackedinputs = [];
-
-		#if android
-		controls.addAndroidBack();
-		#end
-	}
-	
-	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
-	    remove(_virtualpad);
-	}
-	override function destroy() {
-		controls.removeFlxInput(trackedinputs);
-
-		super.destroy();
-	}
-	#else
-	public function addVirtualPad(?DPad, ?Action){};
-	public function killpad(?DPad:FlxDPadMode, ?Action:FlxActionMode){};
-	#end
 
 	override function create()
 	{

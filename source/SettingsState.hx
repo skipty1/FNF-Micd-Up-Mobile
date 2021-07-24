@@ -12,11 +12,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-#if newgrounds
-import io.newgrounds.NG;
-#end
-import lime.app.Application;
-import openfl.Assets;
 import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
 
@@ -50,12 +45,7 @@ class SettingsState extends MusicBeatState
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
 				Conductor.changeBPM(102);
 			}
-//crap but better
-        /*#if mobileC
-        addVirtualPad(UP_DOWN, A_B);
-        #end */ //zack el stupido x3
-		// sussydog is stupid
-		//confused confusing confusion -Zack
+		}
 
 		super.create();
 

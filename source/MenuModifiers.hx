@@ -16,10 +16,6 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-#if newgrounds
-import io.newgrounds.NG;
-#end
-import lime.app.Application;
 import MainVariables._variables;
 import flixel.math.FlxMath;
 
@@ -46,7 +42,7 @@ typedef ModifierData = {
 
 class MenuModifiers extends MusicBeatState
 {
-	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('modiBG_Main'));
+    var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('modiBG_Main'));
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('Modi_Checker'), 0.2, 0.2, true, true);
 	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
 	var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('Modi_Bottom'));
@@ -148,10 +144,6 @@ class MenuModifiers extends MusicBeatState
         explain.x = 20;
         explain.y = 654;
         explain.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
-//crap but better
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
 
         super.create();
 		changeItem();
@@ -183,8 +175,10 @@ class MenuModifiers extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, camLerp);
 
+		#if discord_rpc
 		DiscordClient.changePresence("Settings up modifiers", null);
-    }
+		#end
+	}
 
 	var selectable:Bool = false;
 	var goingBack:Bool = false;
@@ -309,7 +303,9 @@ class MenuModifiers extends MusicBeatState
 					FlxTween.tween(gradientBar, { alpha:0}, 0.3, { ease: FlxEase.quartInOut});
 					FlxTween.tween(side, { alpha:0}, 0.3, { ease: FlxEase.quartInOut});
 
+					#if discord_rpc
 					DiscordClient.changePresence("Going Back!", null);
+					#end
 
 					FlxG.sound.play(Paths.sound('cancelMenu'), _variables.svolume/100);
 

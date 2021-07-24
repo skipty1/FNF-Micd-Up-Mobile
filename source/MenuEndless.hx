@@ -16,15 +16,12 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.addons.display.FlxBackdrop;
 import MainVariables._variables;
-import ModifierVariables._modifiers;
-import ui.FlxVirtualPad;
 
 using StringTools;
 
 class MenuEndless extends MusicBeatState
 {
-    var _pad:FlxVirtualPad;
-    var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('EndBG_Main'));
+	var bg:FlxSprite = new FlxSprite(-89).loadGraphic(Paths.image('EndBG_Main'));
 	var checker:FlxBackdrop = new FlxBackdrop(Paths.image('End_Checker'), 0.2, 0.2, true, true);
 	var gradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, 300, 0xFFAA00AA);
 	var side:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('End_Side'));
@@ -145,10 +142,6 @@ class MenuEndless extends MusicBeatState
 			}
 		}
 
-		_pad = new FlxVirtualPad(FULL, A_B);
-		_pad.alpha = 0.65;
-		this.add(_pad);
-
 		super.create();
 	}
 
@@ -171,100 +164,6 @@ class MenuEndless extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:\n" + lerpScore;
 
-<<<<<<< HEAD
-		var upP = controls.UP_P || _pad.buttonUp.justPressed;
-		var downP = controls.DOWN_P || _pad.buttonDown.justPressed;
-		var accepted = controls.ACCEPT || _pad.buttonA.justPressed;
-        var back = controls.BACK || _pad.buttonB.justPressed;
-
-        if (!substated && selectable && !goingBack && !substated)
-            {
-                if (upP)
-                    changeSelection(-1);
-                if (downP)
-                    changeSelection(1);
-    
-                if (back)
-                {
-                    FlxG.switchState(new PlaySelection());
-                    goingBack = true;
-                    FlxTween.tween(FlxG.camera, { zoom:0.6, alpha:-0.6}, 0.7, { ease: FlxEase.quartInOut});
-                    FlxTween.tween(bg, { alpha:0}, 0.7, { ease: FlxEase.quartInOut});
-                    FlxTween.tween(checker, { alpha:0}, 0.3, { ease: FlxEase.quartInOut});
-                    FlxTween.tween(gradientBar, { alpha:0}, 0.3, { ease: FlxEase.quartInOut});
-                    FlxTween.tween(side, { x:-500 - side.width}, 0.3, { ease: FlxEase.quartInOut});
-                    FlxTween.tween(scoreText, { alpha:0}, 0.3, { ease: FlxEase.quartInOut});
-    
-                    #if desktop
-                            DiscordClient.changePresence("Going back!", null);
-                    #end
-    
-                    FlxG.sound.play(Paths.sound('cancelMenu'), _variables.svolume/100);
-                }
-
-                if (accepted)
-                {
-                    FlxG.sound.play(Paths.sound('confirmMenu'), _variables.svolume/100);
-
-                    Endless_Substate.song = songs[curSelected].songName.toLowerCase();
-
-                    substated = true;
-                    FlxG.state.openSubState(new Endless_Substate());
-                }
-            }
-
-        if (no)
-        {
-            bg.kill();
-            side.kill();
-            gradientBar.kill();
-            checker.kill();
-            scoreText.kill();
-            grpSongs.clear();
-        }
-    }
-    
-    function changeSelection(change:Int = 0)
-        {
-    
-            // NGio.logEvent('Fresh');
-            FlxG.sound.play(Paths.sound('scrollMenu'), 0.4*_variables.svolume/100);
-    
-            curSelected += change;
-    
-            if (curSelected < 0)
-                curSelected = songs.length - 1;
-            if (curSelected >= songs.length)
-                curSelected = 0;
-    
-            // selector.y = (70 * curSelected) + 30;
-    
-            #if !switch
-                intendedScore = Highscore.getEndless(songs[curSelected].songName.toLowerCase());
-            #end
-
-            #if desktop
-			DiscordClient.changePresence("Do I choose "+songs[curSelected].songName+" on Endless?", null);
-		    #end
-    
-            var bullShit:Int = 0;
-    
-            for (item in grpSongs.members)
-            {
-                item.targetY = bullShit - curSelected;
-                bullShit++;
-    
-                item.alpha = 0.6;
-                // item.setGraphicSize(Std.int(item.width * 0.8));
-    
-                if (item.targetY == 0)
-                {
-                    item.alpha = 1;
-                    // item.setGraphicSize(Std.int(item.width));
-                }
-            }
-        }
-=======
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
 		var accepted = controls.ACCEPT;
@@ -352,7 +251,6 @@ class MenuEndless extends MusicBeatState
 			}
 		}
 	}
->>>>>>> 93ac1df3fabaed88f288729cf3104b830667bacf
 }
 
 class SongTitlesE

@@ -36,7 +36,7 @@ class Substate_Preset extends MusicBeatSubstate
         blackBarThingie.scale.y = 0;
         FlxTween.tween(blackBarThingie, { 'scale.y': 230}, 0.5, { ease: FlxEase.expoOut});
 
-        presets = FileSystem.readDirectory(Main.path + 'presets/modifiers');
+        presets = FileSystem.readDirectory('presets/modifiers');
         presets.remove('current');
 
         trace(presets);
@@ -73,10 +73,6 @@ class Substate_Preset extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
-		//crap but better
-        /*#if mobileC
-        addVirtualPad(LEFT_RIGHT, A_B);
-        #end*///el zacko estupido
     }
 
     var selectable:Bool = false;

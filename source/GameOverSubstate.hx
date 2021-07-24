@@ -9,13 +9,11 @@ import flixel.FlxObject;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import MainVariables._variables;
-import ui.FlxVirtualPad;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
 	var bf:Boyfriend;
 	var camFollow:FlxObject;
-	var _pad:FlxVirtualPad;
 
 	var camLerp:Float = 0.14;
 	var zoomLerp:Float = 0.09;
@@ -77,22 +75,18 @@ class GameOverSubstate extends MusicBeatSubstate
 			press.alpha = 0;
 			FlxTween.tween(press, {alpha: 1, y: 550 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		}
-		// crap
-		_pad = new FlxVirtualPad(NONE, A_B);
-		_pad.alpha = 0.65;
-		this.add(_pad);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT || _pad.buttonA.justPressed && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
+		if (controls.ACCEPT && PlayState.gameplayArea != "Marathon" && PlayState.gameplayArea != "Endless" && PlayState.gameplayArea != "Survival")
 		{
 			endBullshit();
 		}
 
-		if (controls.BACK || BACK)
+		if (controls.BACK)
 		{
 			PlayState.curDeaths = 0;
 			FlxG.sound.music.stop();

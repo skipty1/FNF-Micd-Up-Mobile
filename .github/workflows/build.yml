@@ -20,8 +20,6 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-<<<<<<< HEAD
-=======
   buildLinux:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -73,7 +71,6 @@ jobs:
 #          name: linuxBuild
 #          path: bin.tar.gz
 #          retention-days: 1
->>>>>>> 93ac1df3fabaed88f288729cf3104b830667bacf
   buildWindows:
     runs-on: windows-latest
     
@@ -112,7 +109,7 @@ jobs:
       - name: Rebuild systools
         run: haxelib run lime rebuild systools windows
       - name: Compile
-        run: haxelib run lime build android
+        run: haxelib run lime build windows
       - name: Archive
         run: tar -czf bin.tar.gz export/release/windows/bin
 #      - name: Publish Artifact
@@ -130,15 +127,15 @@ jobs:
 
       - uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.2.2
+          haxe-version: 4.1.5
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-          haxelib setup C:/haxelib
-          haxelib install hxcpp > nul
+          haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
           haxelib install lime
           haxelib install openfl
-          haxelib --never install flixel
+          haxelib install flixel
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools
@@ -153,14 +150,12 @@ jobs:
           haxelib git hscript-plus https://github.com/DleanJeans/hscript-plus/
           haxelib git systools https://github.com/haya3218/systools
           haxelib list
-          haxelib upgrade
-        shell: cmd
       - name: Create APIStuff
         run: echo "package;class APIStuff{public static var API:String = '';public static var EncKey:String = '';}" > source/APIStuff.hx
       - name: Rebuild systools
         run: haxelib run lime rebuild systools mac
       - name: Compile
-        run: haxelib run lime build windows
+        run: haxelib run lime build mac 
       - name: Archive
         run: tar -czf bin.tar.gz export/release/macos/bin
 #      - name: Publish Artifact

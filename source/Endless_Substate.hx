@@ -14,8 +14,6 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import MainVariables._variables;
-import ModifierVariables._modifiers;
-import ui.FlxVirtualPad;
 
 using StringTools;
 
@@ -28,7 +26,6 @@ class Endless_Substate extends MusicBeatSubstate
 {
     var menuItems:FlxTypedGroup<FlxSprite>;
     var optionShit:Array<String> = ['difficulty', 'speed', 'ramp', 'play'];
-    var _pad:FlxVirtualPad;
 
     var sprDifficulty:FlxSprite;
     var textSpeed:FlxText;
@@ -127,11 +124,6 @@ class Endless_Substate extends MusicBeatSubstate
 			{
 				selectable = true;
 			});
-
-		// crap
-		_pad = new FlxVirtualPad(FULL, A_B);
-		_pad.alpha = 0.65;
-		this.add(_pad);
     }
 
     var selectable:Bool = false;
@@ -139,19 +131,6 @@ class Endless_Substate extends MusicBeatSubstate
     override function update(elapsed:Float)
     {
         super.update(elapsed);
-//crap 3
-		var UP_P:Bool = false;
-		var DOWN_P:Bool = false;
-		var LEFT_P:Bool = false;
-		var RIGHT_P:Bool = false;
-		var ACCEPT:Bool = false;
-		var BACK:Bool = false;
-		UP_P = _pad.buttonUp.justPressed;
-		DOWN_P = _pad.buttonDown.justPressed;
-		LEFT_P = _pad.buttonLeft.justPressed;
-		RIGHT_P = _pad.buttonRight.justPressed;
-		ACCEPT = _pad.buttonA.justPressed;
-		BACK = _pad.buttonB.justPressed;
 
         blackBarThingie.y = 360 - blackBarThingie.height/2;
         textSpeed.text = Std.string(_endless.speed)+" ("+PlayState.SONG.speed+")";
@@ -159,19 +138,19 @@ class Endless_Substate extends MusicBeatSubstate
 
         if (selectable && !goingBack)
         {
-            if (controls.UP_P || UP_P)
+            if (controls.UP_P)
                 {
                     FlxG.sound.play(Paths.sound('scrollMenu'), _variables.svolume/100);
                     changeItem(-1);
                 }
         
-            if (controls.DOWN_P || DOWN_P)
+            if (controls.DOWN_P)
                 {
                     FlxG.sound.play(Paths.sound('scrollMenu'), _variables.svolume/100);
                     changeItem(1);
                 }
         
-            if (controls.LEFT_P || LEFT_P)
+            if (controls.LEFT_P)
                 switch (optionShit[curSelected])
                 {
                     case 'difficulty':
@@ -185,7 +164,7 @@ class Endless_Substate extends MusicBeatSubstate
                         _endless.ramp = !_endless.ramp;
                         saveCurrent(song, curDifficulty);
                 }
-            if (controls.RIGHT_P || RIGHT_P)
+            if (controls.RIGHT_P)
                 switch (optionShit[curSelected])
                 {
                     case 'difficulty':
@@ -200,7 +179,7 @@ class Endless_Substate extends MusicBeatSubstate
                         saveCurrent(song, curDifficulty);
                 }
 
-            if (controls.BACK || BACK)
+            if (controls.BACK)
                 {
                     goingBack = true;
                     FlxG.sound.play(Paths.sound('cancelMenu'), _variables.svolume/100);
@@ -215,7 +194,7 @@ class Endless_Substate extends MusicBeatSubstate
                         });
                 }
         
-            if (controls.ACCEPT || ACCEPT)
+            if (controls.ACCEPT)
             {
 				DiscordClient.changePresence("Selecting chart types.", null);
 
@@ -329,22 +308,22 @@ class Endless_Substate extends MusicBeatSubstate
 
     public static function loadCurrent(songTitle:String, difficulty:Int)
     {
-        if (!FileSystem.isDirectory(Main.path + 'presets/endless'))
-            FileSystem.createDirectory(Main.path + 'presets/endless');
+        if (!FileSystem.isDirectory('presets/endless'))
+            FileSystem.createDirectory('presets/endless');
 
-        if (!FileSystem.exists(Main.path + 'presets/endless/'+songTitle+'_'+difficulty))
+        if (!FileSystem.exists('presets/endless/'+songTitle+'_'+difficulty))
             {
-                File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
+                File.saveContent(('presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
             }
         else
             {
-                var data:String = File.getContent(Main.path + 'presets/endless/'+songTitle+'_'+difficulty);
+                var data:String = File.getContent('presets/endless/'+songTitle+'_'+difficulty);
                 _endless = Json.parse(data);
             }
     }
 
     public static function saveCurrent(songTitle:String, difficulty:Int)
         {
-            File.saveContent((Main.path + 'presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
+            File.saveContent(('presets/endless/'+songTitle+'_'+difficulty), Json.stringify(_endless, null, '    '));
         }
 }

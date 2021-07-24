@@ -225,13 +225,9 @@ class MenuWeek extends MusicBeatState
 		FlxTween.tween(FlxG.camera, {zoom: 1, alpha: 1}, 0.7, {ease: FlxEase.quartInOut});
 
 		new FlxTimer().start(0.7, function(tmr:FlxTimer)
-			{
-				selectable = true;
-			});
-		//crap but better
-        #if mobileC
-        addVirtualPad(FULL, A_B);
-        #end
+		{
+			selectable = true;
+		});
 	}
 
 	var selectable:Bool = false;

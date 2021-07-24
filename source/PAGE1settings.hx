@@ -207,9 +207,6 @@ class PAGE1settings extends MusicBeatSubstate
 
 		switch (optionShit[curSelected])
 		{
-			case "controls":
-				ResultText.text = 'mobile controls';
-				ExplainText.text = " controls:\n Change mobile controls.";	
 			case "resolution":
 				ResultText.text = FlxG.width * _variables.resolution + "x" + FlxG.height * _variables.resolution;
 				ExplainText.text = "RESOLUTION:\nChange the resolution of your game.";
@@ -294,8 +291,6 @@ class PAGE1settings extends MusicBeatSubstate
 	{
 		switch (optionShit[curSelected])
 		{
-			case "controls":
-				FlxG.switchState(new options.CustomControlsState());	
 			case "resolution":
 				if (controls.CENTER)
 					Change *= 2;
