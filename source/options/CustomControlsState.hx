@@ -259,11 +259,11 @@ class CustomControlsState extends MusicBeatSubstate
 					remove(_pad);
 					_pad.alpha = 0;
 					_hb.visible = true;
-				case 5:
+				/*case 5:
 				    trace(5);
 				    this.remove(_pad);
 				    _pad = null;
-				    _pad = new FlxVirtualPad(DOUBLE, NONE);//go to flxvirtualpad line 101
+				    _pad = new FlxVirtualPad(DOUBLE, NONE);//go to flxvirtualpad line 101*/
 
 			}
 	
