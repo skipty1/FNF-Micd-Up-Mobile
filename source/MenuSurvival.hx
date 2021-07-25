@@ -1,5 +1,6 @@
 package;
 
+import openfl.utils.Assets;
 import haxe.Json;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
@@ -145,10 +146,10 @@ class MenuSurvival extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
+			if (Assets.exists(Paths.music('menu/' + _variables.music)))
 			{
 				FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
-				Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
+				Conductor.changeBPM(Std.parseFloat(Assets.getText('assets/music/menu/' + _variables.music + '_BPM.txt')));
 			}
 			else
 			{

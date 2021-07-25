@@ -92,9 +92,9 @@ class Survival_Substate extends MusicBeatSubstate
 				selectable = true;
 			});
 //crap but better
-        #if mobileC
+        /*#if mobileC
         addVirtualPad(UP_DOWN, A_B);
-        #end
+        #end*/
     }
 
     var selectable:Bool = false;

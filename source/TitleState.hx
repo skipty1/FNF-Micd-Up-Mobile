@@ -55,6 +55,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
+		
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'score', "deeznutsgottem");
 		// systools.Registry.setValue(systools.Registry.HKEY_CURRENT_USER, 'deez\\nuts\\gottem', 'seed', Bitchom.int(0, 999999).string());
 		#if polymod
