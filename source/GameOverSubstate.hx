@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxCamera;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
@@ -77,10 +78,15 @@ class GameOverSubstate extends MusicBeatSubstate
 			press.alpha = 0;
 			FlxTween.tween(press, {alpha: 1, y: 550 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		}
-//crap but better
+		//crap but better
         #if mobileC
-        addVirtualPad(NONE, A_B);
-        #end
+		addVirtualPad(NONE, A_B);
+		
+		var camcontrol = new FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_virtualpad.cameras = [camcontrol];
+		#end
 	}
 
 	override function update(elapsed:Float)
