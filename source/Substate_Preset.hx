@@ -74,9 +74,9 @@ class Substate_Preset extends MusicBeatSubstate
 				selectable = true;
 			});
 //crap but better
-        #if mobileC
+        /*#if mobileC
         addVirtualPad(LEFT_RIGHT, A_B);
-        #end
+        #end*/
     }
 
     var selectable:Bool = false;
